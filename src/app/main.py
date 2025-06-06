@@ -21,6 +21,7 @@ class UserInput:
     timeframe: str
     geo: str
     gprop: str
+    is_relative_intrest: bool
 
 
 # List of Google properties
@@ -60,11 +61,14 @@ def init_screen() -> UserInput:
     timeframe = get_timeframe_from_input()
     geo = get_geo_from_input()
     gprop = get_gprop_from_input()
+    is_relative_intrest = st.toggle("Use relative interest?", value=False)
+
     return UserInput(
         keywords=keywords,
         timeframe=timeframe,
         geo=geo,
-        gprop=gprop
+        gprop=gprop,
+        is_relative_intrest=is_relative_intrest
     )
 
 
@@ -75,7 +79,7 @@ def fetch_trends_data(user_input: UserInput) -> Optional[pd.DataFrame]:
         geo=user_input.geo,
         gprop=user_input.gprop
     )
-    return fetcher.fetch()
+    return fetcher.fetch(is_relative_intrest=user_input.is_relative_intrest)
 
 
 def handle_user_input(user_input: UserInput):

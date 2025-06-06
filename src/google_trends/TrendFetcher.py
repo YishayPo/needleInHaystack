@@ -27,7 +27,9 @@ def no_data_returned_msg(keywords: KeyWords, timeframe: str) -> str:
     return f"No data returned for {keywords} over '{timeframe}'."
 
 
-def rate_limit_exceeded_msg(attempt: int, max_retries: int, backoff: int, error: str) -> str:
+def rate_limit_exceeded_msg(
+    attempt: int, max_retries: int, backoff: int, error: str
+) -> str:
     return f"Rate limited ({RATE_LIMIT_EXCEED}). Retry {attempt}/{max_retries} after {backoff}s. Error: {error}"
 
 
@@ -53,7 +55,14 @@ class Messages:
 
 
 class TrendFetcher:
-    def __init__(self, keywords: Union[KeyWords, KeyWord], timeframe: str = "today 12-m", geo: str = "", gprop: str = "", max_retries: int = 3):
+    def __init__(
+        self,
+        keywords: Union[KeyWords, KeyWord],
+        timeframe: str = "today 12-m",
+        geo: str = "",
+        gprop: str = "",
+        max_retries: int = 3,
+    ):
         """
         Args:
             keywords (str or list of str): Single term or list of terms to query.
@@ -87,7 +96,7 @@ class TrendFetcher:
         if re.fullmatch(r"\d+\s*-\s*[dmy]", date_str.strip()):
             return True
         try:
-            pd.to_datetime(date_str, errors='raise')
+            pd.to_datetime(date_str, errors="raise")
             return True
         except ValueError:
             return False
@@ -99,14 +108,15 @@ class TrendFetcher:
         """
         assert isinstance(value, str), "Timeframe must be a string."
         assert value.strip(), "Timeframe cannot be empty."
-        assert " " in value, "Timeframe must contain a space to separate start and end dates."
-        assert len(value.split(
-            " ")) == 2, "Timeframe must contain exactly two parts: start and end dates."
+        assert (
+            " " in value
+        ), "Timeframe must contain a space to separate start and end dates."
+        assert (
+            len(value.split(" ")) == 2
+        ), "Timeframe must contain exactly two parts: start and end dates."
         first_part, second_part = value.split(" ")
-        assert self._is_valid_datetime(
-            first_part), f"Invalid start date: {first_part}"
-        assert self._is_valid_datetime(
-            second_part), f"Invalid end date: {second_part}"
+        assert self._is_valid_datetime(first_part), f"Invalid start date: {first_part}"
+        assert self._is_valid_datetime(second_part), f"Invalid end date: {second_part}"
         self._timeframe = value
 
     @property
@@ -157,9 +167,9 @@ class TrendFetcher:
         """
         Verify that keywords is a non-empty string or a list of non-empty strings.
         """
-        msg = f'Invalid keywords: {value}. Must be a non-empty string or a list of non-empty strings.'
+        msg = f"Invalid keywords: {value}. Must be a non-empty string or a list of non-empty strings."
         assert isinstance(value, (str, list)), msg
-        assert len(value) > 0,  msg
+        assert len(value) > 0, msg
         if isinstance(value, str):
             value = [value.strip()]
         else:
@@ -182,9 +192,11 @@ class TrendFetcher:
         - 'youtube' for YouTube search
         - 'froogle' for product search
         """
-        valid_gprops = ['', 'news', 'images', 'youtube', 'froogle']
+        valid_gprops = ["", "news", "images", "youtube", "froogle"]
         assert isinstance(value, str), "Gprop must be a string."
-        assert value in valid_gprops, f"Invalid gprop: {value}. Must be one of {valid_gprops}."
+        assert (
+            value in valid_gprops
+        ), f"Invalid gprop: {value}. Must be one of {valid_gprops}."
         self._gprop = value.strip()
 
     @property
@@ -215,36 +227,43 @@ class TrendFetcher:
             if num_partial > 0:
                 warning(Messages.PARTIAL_DATA(self.keywords, num_partial))
 
-    def __handle_no_data(self, df: Optional[pd.DataFrame]) -> pd.DataFrame
-       if df.empty or df is None:
+    def __handle_no_data(self, df: Optional[pd.DataFrame]) -> pd.DataFrame:
+        if df is None or df.empty:
             warning(Messages.NO_DATA_RETURNED(self.keywords, self.timeframe))
             return pd.DataFrame()
         else:
             return df
 
     @staticmethod
-    def _add_keyword_df_to_merge_df(df: Optional[pd.DataFrame], keyword_df: pd.DataFrame) -> pd.DataFrame:
+    def _add_keyword_df_to_merge_df(
+        df: Optional[pd.DataFrame], keyword_df: pd.DataFrame
+    ) -> pd.DataFrame:
         if df is None or df.empty:
             return keyword_df
         if keyword_df is None or keyword_df.empty:
             return df
-        if 'isPartial' in keyword_df.columns:
-            if 'isPartial' in df.columns:
-                df['isPartial'] = df['isPartial'] | keyword_df['isPartial']
+        if "isPartial" in keyword_df.columns:
+            if "isPartial" in df.columns:
+                df["isPartial"] = df["isPartial"] | keyword_df["isPartial"]
             else:
-                df['isPartial'] = keyword_df['isPartial']
-            keyword_df = keyword_df.drop(
-                columns=["isPartial"], errors="ignore")
+                df["isPartial"] = keyword_df["isPartial"]
+            keyword_df = keyword_df.drop(columns=["isPartial"], errors="ignore")
         return pd.concat([df, keyword_df], axis=1)
-    
-    def __fetch_keywords(self, pytrend: TrendReq,keywords: Optional[KeyWords]=None)->pd.DataFrame:
+
+    def __fetch_keywords(
+        self, pytrend: TrendReq, keywords: Optional[KeyWords] = None
+    ) -> pd.DataFrame:
         if keywords is None:
             keywords = self.keywords
-        pytrend.build_payload(kw_list=keywords, timeframe=self.timeframe, geo=self.geo, gprop=self.gprop)
+        pytrend.build_payload(
+            kw_list=keywords, timeframe=self.timeframe, geo=self.geo, gprop=self.gprop
+        )
         df = pytrend.interest_over_time()
         return df
 
-    def _fetch_without_retry(self, pytrend: TrendReq, is_relative_intrest: bool = False) -> pd.DataFrame:
+    def _fetch_without_retry(
+        self, pytrend: TrendReq, is_relative_intrest: bool = False
+    ) -> pd.DataFrame:
         if is_relative_intrest:
             df = self.__fetch_keywords(pytrend)
         else:
@@ -253,11 +272,11 @@ class TrendFetcher:
                 keyword_df = self.__fetch_keywords(pytrend, [keyword])
                 df = self._add_keyword_df_to_merge_df(df, keyword_df)
 
-        df=self.__handle_no_data(df)
+        df = self.__handle_no_data(df)
         self.__handle_isPartial_column(df)
         return df.drop(columns=["isPartial"], errors="ignore")
 
-    def fetch(self,is_relative_intrest: bool = False) -> Optional[pd.DataFrame]:
+    def fetch(self, is_relative_intrest: bool = False) -> Optional[pd.DataFrame]:
         """
         Fetch Google Trends data for the specified keywords.
         Returns a DataFrame with interest over time, or None if no data is returned.
@@ -275,8 +294,11 @@ class TrendFetcher:
                 msg = str(e).lower()
                 if RATE_LIMIT_EXCEED in msg:
                     attempt += 1
-                    info(Messages.RATE_LIMIT_EXCEED(
-                        attempt, self.max_retries, backoff, e))
+                    info(
+                        Messages.RATE_LIMIT_EXCEED(
+                            attempt, self.max_retries, backoff, e
+                        )
+                    )
                     time.sleep(backoff)
                     backoff *= 2
                 else:
