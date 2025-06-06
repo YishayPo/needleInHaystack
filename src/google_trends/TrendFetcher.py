@@ -27,8 +27,8 @@ def no_data_returned_msg(keywords: KeyWords, timeframe: str) -> str:
     return f"No data returned for {keywords} over '{timeframe}'."
 
 
-def rate_limit_exceeded_msg(attempt: int, max_retries: int, backoff: int) -> str:
-    return f"Rate limited ({RATE_LIMIT_EXCEED}). Retry {attempt}/{max_retries} after {backoff}s..."
+def rate_limit_exceeded_msg(attempt: int, max_retries: int, backoff: int, error: str) -> str:
+    return f"Rate limited ({RATE_LIMIT_EXCEED}). Retry {attempt}/{max_retries} after {backoff}s. Error: {error}"
 
 
 def max_retries_reached_msg(max_retries: int) -> str:
@@ -53,7 +53,7 @@ class Messages:
 
 
 class TrendFetcher:
-    def __init__(self, keywords: Union[KeyWords, KeyWord], timeframe: str = "today 12-m", geo: str = "", gprop: str = "", max_retries: int = 5):
+    def __init__(self, keywords: Union[KeyWords, KeyWord], timeframe: str = "today 12-m", geo: str = "", gprop: str = "", max_retries: int = 3):
         """
         Args:
             keywords (str or list of str): Single term or list of terms to query.
@@ -215,20 +215,49 @@ class TrendFetcher:
             if num_partial > 0:
                 warning(Messages.PARTIAL_DATA(self.keywords, num_partial))
 
-    def __handle_no_data(self, df: pd.DataFrame):
-        if df.empty:
+    def __handle_no_data(self, df: Optional[pd.DataFrame]) -> pd.DataFrame
+       if df.empty or df is None:
             warning(Messages.NO_DATA_RETURNED(self.keywords, self.timeframe))
+            return pd.DataFrame()
+        else:
+            return df
 
-    def _fetch_without_retry(self, pytrend: TrendReq) -> pd.DataFrame:
-        pytrend.build_payload(
-            kw_list=self.keywords, timeframe=self.timeframe, geo=self.geo, gprop=self.gprop
-        )
+    @staticmethod
+    def _add_keyword_df_to_merge_df(df: Optional[pd.DataFrame], keyword_df: pd.DataFrame) -> pd.DataFrame:
+        if df is None or df.empty:
+            return keyword_df
+        if keyword_df is None or keyword_df.empty:
+            return df
+        if 'isPartial' in keyword_df.columns:
+            if 'isPartial' in df.columns:
+                df['isPartial'] = df['isPartial'] | keyword_df['isPartial']
+            else:
+                df['isPartial'] = keyword_df['isPartial']
+            keyword_df = keyword_df.drop(
+                columns=["isPartial"], errors="ignore")
+        return pd.concat([df, keyword_df], axis=1)
+    
+    def __fetch_keywords(self, pytrend: TrendReq,keywords: Optional[KeyWords]=None)->pd.DataFrame:
+        if keywords is None:
+            keywords = self.keywords
+        pytrend.build_payload(kw_list=keywords, timeframe=self.timeframe, geo=self.geo, gprop=self.gprop)
         df = pytrend.interest_over_time()
+        return df
+
+    def _fetch_without_retry(self, pytrend: TrendReq, is_relative_intrest: bool = False) -> pd.DataFrame:
+        if is_relative_intrest:
+            df = self.__fetch_keywords(pytrend)
+        else:
+            df = None
+            for keyword in self.keywords:
+                keyword_df = self.__fetch_keywords(pytrend, [keyword])
+                df = self._add_keyword_df_to_merge_df(df, keyword_df)
+
+        df=self.__handle_no_data(df)
         self.__handle_isPartial_column(df)
-        self.__handle_no_data(df)
         return df.drop(columns=["isPartial"], errors="ignore")
 
-    def fetch(self) -> Optional[pd.DataFrame]:
+    def fetch(self,is_relative_intrest: bool = False) -> Optional[pd.DataFrame]:
         """
         Fetch Google Trends data for the specified keywords.
         Returns a DataFrame with interest over time, or None if no data is returned.
@@ -241,13 +270,13 @@ class TrendFetcher:
 
         while attempt < self.max_retries:
             try:
-                return self._fetch_without_retry(pytrend)
+                return self._fetch_without_retry(pytrend, is_relative_intrest)
             except ResponseError as e:
                 msg = str(e).lower()
                 if RATE_LIMIT_EXCEED in msg:
                     attempt += 1
                     info(Messages.RATE_LIMIT_EXCEED(
-                        attempt, self.max_retries, backoff))
+                        attempt, self.max_retries, backoff, e))
                     time.sleep(backoff)
                     backoff *= 2
                 else:
