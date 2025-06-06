@@ -321,9 +321,10 @@ class TrendFetcher:
                     )
                     time.sleep(backoff)
                     if pytrend.proxies is not None:
-                        pytrend = TrendReq(hl="en-US", tz=self._get_local_offset(), proxies=get_proxies_list(), timeout=(10, 25), requests_args={"verify": False})  # type: ignore
+                        proxies = get_proxies_list()
+                        pytrend = TrendReq(hl="en-US", tz=self._get_local_offset(), proxies=proxies, timeout=(10, 25), retries=len(proxies),requests_args={"verify": False})  # type: ignore
                         warning("Trying to continue with proxies.")
-                    backoff *= 2
+                    backoff *= 1.2
                 else:
                     error(Messages.ERROR_FETCHING_DATA(self.keywords, msg))
                     return None
