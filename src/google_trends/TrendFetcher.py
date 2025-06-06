@@ -3,15 +3,20 @@ from pytrends.request import TrendReq
 from pytrends.exceptions import ResponseError
 import time
 from typing import Callable, List, Optional, Union
-from logging import log, warning, error, info
+from logging import log, warning, error, info, debug
 import pandas as pd
 from enum import Enum
 import datetime
 import re
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 KeyWord = str
 KeyWords = List[str]
 RATE_LIMIT_EXCEED = "429"
+# proxies dashboard can be found at https://dashboard.webshare.io/dashboard?activityTimestampLte=%222025-07-06T22%3A31%3A18.134Z%22&activityTimestampGte=%222025-06-06T22%3A31%3A18.134Z%22
+PROXIES_PATH = "proxies.txt"
 
 
 @dataclass
@@ -52,6 +57,21 @@ class Messages:
     MAX_RETRIES: Callable = max_retries_reached_msg
     PARTIAL_DATA: Callable = is_partial_data_msg
     ERROR_FETCHING_DATA: Callable = error_fetching_data_msg
+
+
+def get_proxies_list(proxies_file: str = PROXIES_PATH) -> List[str]:
+    proxies = pd.read_csv(proxies_file, delimiter=":")
+    proxies["url"] = (
+        "http://"
+        + proxies["Username"]
+        + ":"
+        + proxies["Password"]
+        + "@"
+        + proxies["IP"]
+        + ":"
+        + proxies["Port"].astype(str)
+    )
+    return proxies.url.tolist()
 
 
 class TrendFetcher:
@@ -294,12 +314,15 @@ class TrendFetcher:
                 msg = str(e).lower()
                 if RATE_LIMIT_EXCEED in msg:
                     attempt += 1
-                    info(
+                    debug(
                         Messages.RATE_LIMIT_EXCEED(
                             attempt, self.max_retries, backoff, e
                         )
                     )
                     time.sleep(backoff)
+                    if pytrend.proxies is not None:
+                        pytrend = TrendReq(hl="en-US", tz=self._get_local_offset(), proxies=get_proxies_list(), timeout=(10, 25), requests_args={"verify": False})  # type: ignore
+                        warning("Trying to continue with proxies.")
                     backoff *= 2
                 else:
                     error(Messages.ERROR_FETCHING_DATA(self.keywords, msg))

@@ -1,0 +1,6 @@
+apple
+microsoft
+sp500
+nasdaq
+dow jones
+bull market

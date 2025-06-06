@@ -1,0 +1,11 @@
+IP:Port:Username:Password
+198.23.239.134:6540:loyppwsc:prpa6u5ock5k
+207.244.217.165:6712:loyppwsc:prpa6u5ock5k
+107.172.163.27:6543:loyppwsc:prpa6u5ock5k
+23.94.138.75:6349:loyppwsc:prpa6u5ock5k
+216.10.27.159:6837:loyppwsc:prpa6u5ock5k
+136.0.207.84:6661:loyppwsc:prpa6u5ock5k
+64.64.118.149:6732:loyppwsc:prpa6u5ock5k
+142.147.128.93:6593:loyppwsc:prpa6u5ock5k
+104.239.105.125:6655:loyppwsc:prpa6u5ock5k
+173.0.9.70:5653:loyppwsc:prpa6u5ock5k
