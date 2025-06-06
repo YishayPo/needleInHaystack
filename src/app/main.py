@@ -97,7 +97,17 @@ def display_trends_csv():
     st.dataframe(st.session_state['trends_data'])
 
 def download_trends_csv():
-    csv = st.session_state['trends_data'].to_csv().encode('utf-8')
+    weekly = st.checkbox("Weekly Data", value=False)
+    trends_data = st.session_state['trends_data']
+    if weekly:
+        # Resample to weekly frequency (assuming index is datetime)
+        df_weekly = trends_data.copy()
+        if not pd.api.types.is_datetime64_any_dtype(df_weekly.index):
+            df_weekly.index = pd.to_datetime(df_weekly.index)
+        df_weekly = df_weekly.resample('W').mean()
+        csv = df_weekly.to_csv().encode('utf-8')
+    else:
+        csv = trends_data.to_csv().encode('utf-8')
     st.download_button(
         label="Download CSV",
         data=csv,
@@ -108,7 +118,6 @@ def download_trends_csv():
 def handle_trends_csv():
     display_trends_csv()
     download_trends_csv()
-
 
 def display_trends(user_input: UserInput):
     if 'trends_data' in st.session_state:
