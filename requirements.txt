@@ -1,0 +1,7 @@
+streamlit
+pandas
+pytrends
+streamlit-aggrid
+datetime
+plotly
+watchdog
