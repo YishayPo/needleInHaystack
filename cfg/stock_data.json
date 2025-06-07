@@ -1,0 +1,234 @@
+{
+    "output_dir": "./data",
+    "entries": [
+        {
+            "name": "S&P500",
+            "ticker": "^GSPC",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Benchmark index of 500 large-cap U.S. companies across all sectors."
+        },
+        {
+            "name": "Apple",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Single-stock dataset for Apple Inc., a global consumer-electronics and services leader."
+        },
+        {
+            "name": "Google",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Alphabet Inc. Class A shares—parent company of Google and related businesses."
+        },
+        {
+            "name": "Tesla",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Tesla Inc., electric-vehicle and clean-energy manufacturer."
+        },
+        {
+            "name": "LargeTech",
+            "tickers": ["AAPL", "MSFT", "GOOGL", "AMZN"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Equal-weighted custom basket of four U.S. mega-cap technology leaders."
+        },
+        {
+            "name": "GreenLeaders",
+            "tickers": ["NEE", "MSFT", "TSLA", "AAPL", "ORSTED.CO", "GOOGL"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Large-cap firms with ambitious net-zero or carbon-negative commitments."
+        },
+        {
+            "name": "SupportIsrael",
+            "tickers": ["INTC", "NVDA", "LLY", "GOOGL", "AAPL", "MSFT", "JPM", "WMT"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Companies that publicly donated or expressed solidarity with Israel after October 2023."
+        },
+        {
+            "name": "SupportPalestine",
+            "tickers": ["ULVR.L", "ABNB", "GOOGL", "ADDYY"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Firms that pledged funds or actions supporting Palestinian humanitarian relief."
+        },
+        {
+            "name": "SupportUkraine",
+            "tickers": ["AAPL", "MSFT", "KO", "BP", "SHEL"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Corporations aiding Ukraine or exiting Russia following the February 2022 invasion."
+        },
+        {
+            "name": "SupportRussia",
+            "tickers": ["RBI.VI", "BABA", "RIL.NS", "600104.SS", "GAZP.ME"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Firms that maintained or expanded Russian operations despite post-2022 sanctions."
+        },
+        {
+            "name": "CleanWater",
+            "tickers": ["XYL", "WTRG", "DHR"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "U.S. water-infrastructure and treatment leaders addressing global water scarcity."
+        },
+        {
+            "name": "GenderDiversity",
+            "tickers": ["AAPL", "MSFT", "MA", "UNH", "V", "NVDA"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Businesses recognised for strong female representation at board or workforce levels."
+        },
+        {
+            "name": "LGBTQEquality",
+            "tickers": ["MSFT", "IBM", "SBUX", "AAPL", "GOOGL", "CRM"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Companies earning top Human Rights Campaign Corporate Equality scores."
+        },
+        {
+            "name": "VeteranFriendly",
+            "tickers": ["JPM", "LMT", "HD", "VZ", "BA", "CVX"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Employers featured on Military Times ‘Best for Vets’ rankings."
+        },
+        {
+            "name": "HydrogenCCS",
+            "tickers": ["PLUG", "FSLR", "NEE"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Leaders in hydrogen fuel-cell, solar and zero-carbon-power or carbon-capture tech."
+        },
+        {
+            "name": "AIEthics",
+            "tickers": ["GOOGL", "MSFT", "META", "IBM", "AMZN"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Tech giants that signed the 2023 U.S. voluntary AI-safety pledge."
+        },
+        {
+            "name": "CircularEconomy",
+            "tickers": ["WM", "RSG", "NKE", "ADDYY"],
+            "start": "2020-01-01",
+            "end": "2025-06-01",
+            "interval": "1wk",
+            "aggregate": "value",
+            "description": "Large-caps with significant recycling, reuse or circular-design initiatives."
+        },
+        {
+            "name": "ICLN",
+            "ticker": "ICLN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares Global Clean Energy ETF—global portfolio of renewable-energy equities."
+        },
+        {
+            "name": "TAN",
+            "ticker": "TAN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Invesco Solar ETF—focuses on companies deriving most revenue from solar power."
+        },
+        {
+            "name": "PHO",
+            "ticker": "PHO",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Invesco Water Resources ETF—U.S. firms in water purification and infrastructure."
+        },
+        {
+            "name": "AQWA",
+            "ticker": "AQWA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Global X Clean Water ETF—global companies advancing clean-water solutions."
+        },
+        {
+            "name": "EIS",
+            "ticker": "EIS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares MSCI Israel ETF—broad exposure to Israeli equities."
+        },
+        {
+            "name": "ISRA",
+            "ticker": "ISRA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "VanEck Israel ETF—tracks the BlueStar Israel Global Index of Israeli-linked firms."
+        },
+        {
+            "name": "FRDM",
+            "ticker": "FRDM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Freedom 100 Emerging Markets ETF—weights EM equities by civil and economic freedom."
+        },
+        {
+            "name": "RSX",
+            "ticker": "RSX",
+            "period": "5y",
+            "interval": "1d",
+            "description": "VanEck Russia ETF (liquidated 2025) providing pre-suspension Russia equity exposure."
+        },
+        {
+            "name": "ERUS",
+            "ticker": "ERUS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares MSCI Russia ETF—trading halted March 2022 amid sanctions."
+        },
+        {
+            "name": "SHE",
+            "ticker": "SHE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR MSCI USA Gender Diversity ETF—U.S. firms leading in gender diversity."
+        },
+        {
+            "name": "LGBT",
+            "ticker": "LGBT",
+            "period": "5y",
+            "interval": "1d",
+            "description": "LGBTQ100 ESG ETF—basket of LGBTQ-inclusive U.S. companies (closed 2022)."
+        },
+        {
+            "name": "VETS",
+            "ticker": "VETS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Pacer Military Times Best Employers ETF—tracks companies ranked ‘Best for Vets’."
+        }
+    ]
+}
