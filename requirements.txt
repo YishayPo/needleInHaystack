@@ -6,3 +6,8 @@ datetime
 plotly
 watchdog
 urllib3<2
+yfinance>0.2.54
+tqdm
+pydantic
+rich
+ipywidgets
