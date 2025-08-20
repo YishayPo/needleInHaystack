@@ -1,0 +1,848 @@
+{
+    "output_dir": "./data/clustering/",
+    "entries": [
+        {
+            "name": "S&P500",
+            "ticker": "^GSPC",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Benchmark index of 500 large-cap U.S. companies across all sectors."
+        },
+        {
+            "name": "Apple",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Single-stock dataset for Apple Inc., a global consumer-electronics and services leader."
+        },
+        {
+            "name": "Google",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Alphabet Inc. Class A shares\u2014parent company of Google and related businesses."
+        },
+        {
+            "name": "Tesla",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Tesla Inc., electric-vehicle and clean-energy manufacturer."
+        },
+        {
+            "name": "LargeTech",
+            "tickers": [
+                "AAPL",
+                "MSFT",
+                "GOOGL",
+                "AMZN"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Equal-weighted custom basket of four U.S. mega-cap technology leaders.",
+            "period": "5y"
+        },
+        {
+            "name": "GreenLeaders",
+            "tickers": [
+                "NEE",
+                "MSFT",
+                "TSLA",
+                "AAPL",
+                "ORSTED.CO",
+                "GOOGL"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Large-cap firms with ambitious net-zero or carbon-negative commitments.",
+            "period": "5y"
+        },
+        {
+            "name": "SupportIsrael",
+            "tickers": [
+                "INTC",
+                "NVDA",
+                "LLY",
+                "GOOGL",
+                "AAPL",
+                "MSFT",
+                "JPM",
+                "WMT"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Companies that publicly donated or expressed solidarity with Israel after October 2023.",
+            "period": "5y"
+        },
+        {
+            "name": "SupportPalestine",
+            "tickers": [
+                "ULVR.L",
+                "ABNB",
+                "GOOGL",
+                "ADDYY"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Firms that pledged funds or actions supporting Palestinian humanitarian relief.",
+            "period": "5y"
+        },
+        {
+            "name": "SupportUkraine",
+            "tickers": [
+                "AAPL",
+                "MSFT",
+                "KO",
+                "BP",
+                "SHEL"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Corporations aiding Ukraine or exiting Russia following the February 2022 invasion.",
+            "period": "5y"
+        },
+        {
+            "name": "SupportRussia",
+            "tickers": [
+                "RBI.VI",
+                "BABA",
+                "RIL.NS",
+                "600104.SS",
+                "GAZP.ME"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Firms that maintained or expanded Russian operations despite post-2022 sanctions.",
+            "period": "5y"
+        },
+        {
+            "name": "CleanWater",
+            "tickers": [
+                "XYL",
+                "WTRG",
+                "DHR"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "U.S. water-infrastructure and treatment leaders addressing global water scarcity.",
+            "period": "5y"
+        },
+        {
+            "name": "GenderDiversity",
+            "tickers": [
+                "AAPL",
+                "MSFT",
+                "MA",
+                "UNH",
+                "V",
+                "NVDA"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Businesses recognised for strong female representation at board or workforce levels.",
+            "period": "5y"
+        },
+        {
+            "name": "LGBTQEquality",
+            "tickers": [
+                "MSFT",
+                "IBM",
+                "SBUX",
+                "AAPL",
+                "GOOGL",
+                "CRM"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Companies earning top Human Rights Campaign Corporate Equality scores.",
+            "period": "5y"
+        },
+        {
+            "name": "VeteranFriendly",
+            "tickers": [
+                "JPM",
+                "LMT",
+                "HD",
+                "VZ",
+                "BA",
+                "CVX"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Employers featured on Military Times \u2018Best for Vets\u2019 rankings.",
+            "period": "5y"
+        },
+        {
+            "name": "HydrogenCCS",
+            "tickers": [
+                "PLUG",
+                "FSLR",
+                "NEE"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Leaders in hydrogen fuel-cell, solar and zero-carbon-power or carbon-capture tech.",
+            "period": "5y"
+        },
+        {
+            "name": "AIEthics",
+            "tickers": [
+                "GOOGL",
+                "MSFT",
+                "META",
+                "IBM",
+                "AMZN"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Tech giants that signed the 2023 U.S. voluntary AI-safety pledge.",
+            "period": "5y"
+        },
+        {
+            "name": "CircularEconomy",
+            "tickers": [
+                "WM",
+                "RSG",
+                "NKE",
+                "ADDYY"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Large-caps with significant recycling, reuse or circular-design initiatives.",
+            "period": "5y"
+        },
+        {
+            "name": "ICLN",
+            "ticker": "ICLN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares Global Clean Energy ETF\u2014global portfolio of renewable-energy equities."
+        },
+        {
+            "name": "TAN",
+            "ticker": "TAN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Invesco Solar ETF\u2014focuses on companies deriving most revenue from solar power."
+        },
+        {
+            "name": "PHO",
+            "ticker": "PHO",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Invesco Water Resources ETF\u2014U.S. firms in water purification and infrastructure."
+        },
+        {
+            "name": "AQWA",
+            "ticker": "AQWA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Global X Clean Water ETF\u2014global companies advancing clean-water solutions."
+        },
+        {
+            "name": "EIS",
+            "ticker": "EIS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares MSCI Israel ETF\u2014broad exposure to Israeli equities."
+        },
+        {
+            "name": "ISRA",
+            "ticker": "ISRA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "VanEck Israel ETF\u2014tracks the BlueStar Israel Global Index of Israeli-linked firms."
+        },
+        {
+            "name": "FRDM",
+            "ticker": "FRDM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Freedom 100 Emerging Markets ETF\u2014weights EM equities by civil and economic freedom."
+        },
+        {
+            "name": "RSX",
+            "ticker": "RSX",
+            "period": "5y",
+            "interval": "1d",
+            "description": "VanEck Russia ETF (liquidated 2025) providing pre-suspension Russia equity exposure."
+        },
+        {
+            "name": "ERUS",
+            "ticker": "ERUS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares MSCI Russia ETF\u2014trading halted March 2022 amid sanctions."
+        },
+        {
+            "name": "SHE",
+            "ticker": "SHE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR MSCI USA Gender Diversity ETF\u2014U.S. firms leading in gender diversity."
+        },
+        {
+            "name": "LGBT",
+            "ticker": "LGBT",
+            "period": "5y",
+            "interval": "1d",
+            "description": "LGBTQ100 ESG ETF\u2014basket of LGBTQ-inclusive U.S. companies (closed 2022)."
+        },
+        {
+            "name": "VETS",
+            "ticker": "VETS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Pacer Military Times Best Employers ETF\u2014tracks companies ranked \u2018Best for Vets\u2019."
+        },
+        {
+            "name": "S&P500_ETF",
+            "ticker": "SPY",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR S&P 500 ETF Trust\u2014tracks the S&P 500."
+        },
+        {
+            "name": "Nasdaq100",
+            "ticker": "QQQ",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Invesco QQQ\u2014tracks the Nasdaq-100 (non-financials)."
+        },
+        {
+            "name": "Russell2000",
+            "ticker": "IWM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares Russell 2000 ETF\u2014U.S. small-cap benchmark."
+        },
+        {
+            "name": "DowJones30",
+            "ticker": "DIA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR Dow Jones Industrial Average ETF Trust\u2014tracks the Dow 30."
+        },
+        {
+            "name": "US_Tech_Sector",
+            "ticker": "XLK",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Technology Select Sector SPDR."
+        },
+        {
+            "name": "US_HealthCare_Sector",
+            "ticker": "XLV",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Health Care Select Sector SPDR."
+        },
+        {
+            "name": "US_Financials_Sector",
+            "ticker": "XLF",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Financial Select Sector SPDR."
+        },
+        {
+            "name": "US_Consumer_Discretionary",
+            "ticker": "XLY",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Consumer Discretionary Select Sector SPDR."
+        },
+        {
+            "name": "US_Consumer_Staples",
+            "ticker": "XLP",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Consumer Staples Select Sector SPDR."
+        },
+        {
+            "name": "US_Industrials",
+            "ticker": "XLI",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Industrial Select Sector SPDR."
+        },
+        {
+            "name": "US_Energy",
+            "ticker": "XLE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Energy Select Sector SPDR."
+        },
+        {
+            "name": "US_Utilities",
+            "ticker": "XLU",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Utilities Select Sector SPDR."
+        },
+        {
+            "name": "US_Materials",
+            "ticker": "XLB",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Materials Select Sector SPDR."
+        },
+        {
+            "name": "US_Communication_Services",
+            "ticker": "XLC",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Communication Services Select Sector SPDR."
+        },
+        {
+            "name": "US_Real_Estate",
+            "ticker": "XLRE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Real Estate Select Sector SPDR."
+        },
+        {
+            "name": "US_Biotech",
+            "ticker": "IBB",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares Biotechnology ETF\u2014U.S. biotech leaders."
+        },
+        {
+            "name": "US_Banks",
+            "ticker": "KBE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR S&P Bank ETF\u2014U.S. money-center & regional banks."
+        },
+        {
+            "name": "US_Regional_Banks",
+            "ticker": "KRE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "SPDR S&P Regional Banking ETF\u2014U.S. regional banks."
+        },
+        {
+            "name": "US_Transportation",
+            "ticker": "IYT",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares U.S. Transportation ETF\u2014rails, air, trucking, logistics."
+        },
+        {
+            "name": "US_Homebuilders",
+            "ticker": "ITB",
+            "period": "5y",
+            "interval": "1d",
+            "description": "iShares U.S. Home Construction ETF\u2014builders & suppliers."
+        },
+        {
+            "name": "AI_Infrastructure_Stack",
+            "tickers": [
+                "NVDA",
+                "AMD",
+                "AVGO",
+                "ASML",
+                "TSM",
+                "ANET",
+                "SMCI",
+                "MSFT",
+                "AMZN",
+                "GOOGL"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Semiconductors, hyperscalers, and datacenter enablers driving AI adoption.",
+            "period": "5y"
+        },
+        {
+            "name": "Defense_Cyber_Resilience",
+            "tickers": [
+                "LMT",
+                "NOC",
+                "RTX",
+                "GD",
+                "HII",
+                "PLTR",
+                "PANW",
+                "CRWD"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "Defense primes and cybersecurity leaders benefiting from global security demand.",
+            "period": "5y"
+        },
+        {
+            "name": "Rebuilding_America_Grid_Chips",
+            "tickers": [
+                "PWR",
+                "NEE",
+                "VST",
+                "DUK",
+                "AMAT",
+                "LRCX",
+                "KLAC"
+            ],
+            "interval": "1d",
+            "aggregate": "value",
+            "description": "US grid contractors, utilities, and chip-tool firms tied to IRA and CHIPS Act spending.",
+            "period": "5y"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for MSFT."
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for NVDA."
+        },
+        {
+            "name": "AMZN",
+            "ticker": "AMZN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for AMZN."
+        },
+        {
+            "name": "META",
+            "ticker": "META",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for META."
+        },
+        {
+            "name": "AVGO",
+            "ticker": "AVGO",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for AVGO."
+        },
+        {
+            "name": "AAPL",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for AAPL."
+        },
+        {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for TSLA."
+        },
+        {
+            "name": "GOOGL",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for GOOGL."
+        },
+        {
+            "name": "ASML",
+            "ticker": "ASML",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ASML."
+        },
+        {
+            "name": "TSM",
+            "ticker": "TSM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for TSM."
+        },
+        {
+            "name": "AMD",
+            "ticker": "AMD",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for AMD."
+        },
+        {
+            "name": "NFLX",
+            "ticker": "NFLX",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for NFLX."
+        },
+        {
+            "name": "ORCL",
+            "ticker": "ORCL",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ORCL."
+        },
+        {
+            "name": "SAP",
+            "ticker": "SAP",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for SAP."
+        },
+        {
+            "name": "CRM",
+            "ticker": "CRM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for CRM."
+        },
+        {
+            "name": "IBM",
+            "ticker": "IBM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for IBM."
+        },
+        {
+            "name": "INTC",
+            "ticker": "INTC",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for INTC."
+        },
+        {
+            "name": "ARM",
+            "ticker": "ARM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ARM."
+        },
+        {
+            "name": "SNOW",
+            "ticker": "SNOW",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for SNOW."
+        },
+        {
+            "name": "PANW",
+            "ticker": "PANW",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for PANW."
+        },
+        {
+            "name": "CRWD",
+            "ticker": "CRWD",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for CRWD."
+        },
+        {
+            "name": "SHOP",
+            "ticker": "SHOP",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for SHOP."
+        },
+        {
+            "name": "ADSK",
+            "ticker": "ADSK",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ADSK."
+        },
+        {
+            "name": "NOW",
+            "ticker": "NOW",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for NOW."
+        },
+        {
+            "name": "UBER",
+            "ticker": "UBER",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for UBER."
+        },
+        {
+            "name": "ABNB",
+            "ticker": "ABNB",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ABNB."
+        },
+        {
+            "name": "BKNG",
+            "ticker": "BKNG",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for BKNG."
+        },
+        {
+            "name": "LLY",
+            "ticker": "LLY",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for LLY."
+        },
+        {
+            "name": "NVO",
+            "ticker": "NVO",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for NVO."
+        },
+        {
+            "name": "JNJ",
+            "ticker": "JNJ",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for JNJ."
+        },
+        {
+            "name": "MRK",
+            "ticker": "MRK",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for MRK."
+        },
+        {
+            "name": "UNH",
+            "ticker": "UNH",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for UNH."
+        },
+        {
+            "name": "TMO",
+            "ticker": "TMO",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for TMO."
+        },
+        {
+            "name": "DHR",
+            "ticker": "DHR",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for DHR."
+        },
+        {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for ISRG."
+        },
+        {
+            "name": "SYK",
+            "ticker": "SYK",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for SYK."
+        },
+        {
+            "name": "REGN",
+            "ticker": "REGN",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for REGN."
+        },
+        {
+            "name": "XOM",
+            "ticker": "XOM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for XOM."
+        },
+        {
+            "name": "CVX",
+            "ticker": "CVX",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for CVX."
+        },
+        {
+            "name": "COP",
+            "ticker": "COP",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for COP."
+        },
+        {
+            "name": "SLB",
+            "ticker": "SLB",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for SLB."
+        },
+        {
+            "name": "NEE",
+            "ticker": "NEE",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for NEE."
+        },
+        {
+            "name": "JPM",
+            "ticker": "JPM",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for JPM."
+        },
+        {
+            "name": "BAC",
+            "ticker": "BAC",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for BAC."
+        },
+        {
+            "name": "GS",
+            "ticker": "GS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for GS."
+        },
+        {
+            "name": "MS",
+            "ticker": "MS",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for MS."
+        },
+        {
+            "name": "BRK.B",
+            "ticker": "BRK.B",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for BRK.B."
+        },
+        {
+            "name": "BLK",
+            "ticker": "BLK",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for BLK."
+        },
+        {
+            "name": "V",
+            "ticker": "V",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for V."
+        },
+        {
+            "name": "MA",
+            "ticker": "MA",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for MA."
+        },
+        {
+            "name": "COST",
+            "ticker": "COST",
+            "period": "5y",
+            "interval": "1d",
+            "description": "Individual stock entry for COST."
+        }
+    ]
+}
