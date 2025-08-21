@@ -9,17 +9,20 @@ The script reads a JSON configuration that defines what to download, how, and
 where to save the resulting CSVs. It supports:
     • Single tickers (e.g. indexes, large caps)
     • Lists of tickers that will be treated as a custom equally-weighted ETF.
+    • Company information including headquarters data
 
 Configuration schema
 --------------------
 {
     "output_dir": "./data",                # directory to place CSVs (will be created)
+    "company_info_file": "company_info.csv",  # optional: filename for company data
     "entries": [
         {
             "name": "S&P500",                 # used for the CSV filename
             "ticker": "^GSPC",                # single string → single security/index
             "period": "5y",                   # yfinance period (mutually exclusive w/ start/end)
-            "interval": "1d"                  # yfinance interval
+            "interval": "1d",                 # yfinance interval
+            "include_company_info": false     # optional: fetch company data (default false)
         },
         {
             "name": "LargeTech",
@@ -27,7 +30,8 @@ Configuration schema
             "start": "2020-01-01",            # explicit date range allowed too
             "end": "2025-06-01",
             "interval": "1wk",                # weekly data
-            "aggregate": "value"               # optional: value | mean | none (default none)
+            "aggregate": "value",             # optional: value | mean | none (default none)
+            "include_company_info": true      # fetch company info for all tickers
         }
     ]
 }
@@ -38,6 +42,14 @@ Aggregate behavior for custom ETF entries
                 adjusted closes, then rescales to a base of 100 (a quick index proxy).
 * "mean"    - Arithmetic mean of the adjusted closes.
 * "none"    - Writes one column per component ticker (default).
+
+Company Information
+-------------------
+When include_company_info is true, the script will fetch and save:
+- Company name, sector, industry
+- Headquarters location (address, city, state, zip, country)
+- Contact info (phone, website)
+- Key metrics (market cap, employees, etc.)
 
 
 """
@@ -75,6 +87,7 @@ class EntryConfig:
     interval: str = "1d"
     aggregate: str = "none"  # for custom ETF – value | mean | none
     join: str = "inner"      # how to align date indexes across tickers
+    include_company_info: bool = True  # whether to fetch company data
 
     description: Optional[str] = ""
 
@@ -103,11 +116,19 @@ class EntryConfig:
             return dict(period=self.period, interval=self.interval)
         return dict(start=self.start, end=self.end, interval=self.interval)
 
+    @property
+    def all_tickers(self) -> List[str]:
+        """Return all tickers (whether single or multiple)."""
+        if self.ticker:
+            return [self.ticker]
+        return self.tickers
+
 
 @dataclass
 class Config:
     output_dir: str
     entries: List[EntryConfig]
+    company_info_file: str = "company_info.csv"
 
     @staticmethod
     def load(path: Union[str, Path]) -> "Config":
@@ -119,11 +140,67 @@ class Config:
         for e in entries:
             e.validate()
         output_dir = raw.get("output_dir", "./data")
-        return Config(output_dir=output_dir, entries=entries)
+        company_info_file = raw.get("company_info_file", "company_info.csv")
+        return Config(output_dir=output_dir, entries=entries, company_info_file=company_info_file)
 
 
 PRICE_COLS = ["Open", "High", "Low", "Close", "Adj Close"]
 VOL_COL = "Volume"
+
+
+def fetch_company_info(ticker: str) -> Dict[str, any]:
+    """Fetch company information including headquarters data."""
+    try:
+        stock = yf.Ticker(ticker)
+        info = stock.info
+
+        # Extract relevant company information
+        company_data = {
+            'ticker': ticker,
+            'name': info.get('longName', ''),
+            'short_name': info.get('shortName', ''),
+
+            # Headquarters information
+            'hq_address': info.get('address1', ''),
+            'hq_address2': info.get('address2', ''),
+            'hq_city': info.get('city', ''),
+            'hq_state': info.get('state', ''),
+            'hq_zip': info.get('zip', ''),
+            'hq_country': info.get('country', ''),
+
+            # Contact information
+            'phone': info.get('phone', ''),
+            'website': info.get('website', ''),
+
+            # Business information
+            'sector': info.get('sector', ''),
+            'industry': info.get('industry', ''),
+            'business_summary': info.get('longBusinessSummary', '')[:500],  # Truncate for CSV
+
+            # Key metrics
+            'market_cap': info.get('marketCap', 0),
+            'enterprise_value': info.get('enterpriseValue', 0),
+            'employees': info.get('fullTimeEmployees', 0),
+            'founded': info.get('founded', ''),
+
+            # Financial metrics
+            'currency': info.get('currency', ''),
+            'exchange': info.get('exchange', ''),
+            'quote_type': info.get('quoteType', ''),
+
+            # Additional metrics
+            'pe_ratio': info.get('trailingPE', 0),
+            'forward_pe': info.get('forwardPE', 0),
+            'dividend_yield': info.get('dividendYield', 0),
+            'beta': info.get('beta', 0),
+            '52_week_high': info.get('fiftyTwoWeekHigh', 0),
+            '52_week_low': info.get('fiftyTwoWeekLow', 0),
+        }
+
+        return company_data
+    except Exception as e:
+        console.log(f"[yellow]Warning: Could not fetch company info for {ticker}: {e}")
+        return {'ticker': ticker, 'error': str(e)}
 
 
 def fetch_single_ticker(entry: EntryConfig) -> pd.DataFrame:
@@ -193,7 +270,7 @@ def fetch_custom_etf(entry: EntryConfig) -> pd.DataFrame:
 
     # price‑like columns (Open … Close [+ Adj Close])
     for col in PRICE_COLS:
-        # skip Adj Close if *any* ticker lacks it (NYSE indices, some crypto …)
+        # skip Adj Close if *any* ticker lacks it (NYSE indices, some crypto …)
         if col == "Adj Close" and not all(col in df.columns for df in ticker_frames):
             continue
         cat = pd.concat(
@@ -230,6 +307,29 @@ def save_csv(df: pd.DataFrame, entry_name: str, out_dir: Path):
     console.log(f"Saved {file_path.relative_to(Path.cwd())}")
 
 
+def save_company_info(company_data_list: List[Dict], out_dir: Path, filename: str):
+    """Save company information to CSV."""
+    if not company_data_list:
+        return
+
+    df = pd.DataFrame(company_data_list)
+    # Order columns logically
+    column_order = [
+        'ticker', 'name', 'short_name',
+        'hq_address', 'hq_address2', 'hq_city', 'hq_state', 'hq_zip', 'hq_country',
+        'phone', 'website', 'sector', 'industry',
+        'market_cap', 'enterprise_value', 'employees', 'currency', 'exchange',
+        'pe_ratio', 'forward_pe', 'dividend_yield', 'beta',
+        '52_week_high', '52_week_low', 'business_summary'
+    ]
+    # Only include columns that exist in the dataframe
+    df = df[[col for col in column_order if col in df.columns]]
+
+    file_path = out_dir / filename
+    df.to_csv(file_path, index=False)
+    console.log(f"Saved company info to {file_path.relative_to(Path.cwd())}")
+
+
 # ------------------------------- CLI ------------------------------------- #
 
 def main():
@@ -237,17 +337,43 @@ def main():
         description="Download stock/index/portfolio data via yfinance."
     )
     parser.add_argument("--config", "-c", required=True, help="Path to JSON config file.")
+    parser.add_argument("--company_data", required=False, action="store_true", help="Fetch only company data.")
     args = parser.parse_args()
 
     cfg = Config.load(args.config)
+    only_company_info = args.company_data
     out_dir = Path(cfg.output_dir).expanduser().resolve()
 
+    # Collect all company data if any entry requests it
+    all_company_data = []
+    processed_tickers = set()
+
     for entry in cfg.entries:
-        if entry.is_custom_etf():
-            df = fetch_custom_etf(entry)
-        else:
-            df = fetch_single_ticker(entry)
-        save_csv(df, entry.name, out_dir)
+        if only_company_info and not entry.include_company_info:
+            console.log(f"Skipping {entry.name} (not fetching company info).")
+            continue
+        elif not only_company_info:
+            # Fetch price data
+            if entry.is_custom_etf():
+                df = fetch_custom_etf(entry)
+            else:
+                df = fetch_single_ticker(entry)
+            save_csv(df, entry.name, out_dir)
+
+        # Fetch company info if requested
+        if entry.include_company_info:
+            console.log(f"Fetching company info for {entry.name} …")
+            for ticker in track(entry.all_tickers, description="Company info"):
+                if ticker not in processed_tickers and not ticker.startswith('^'):
+                    # Skip index tickers (^GSPC, etc.) as they don't have company info
+                    company_info = fetch_company_info(ticker)
+                    if 'error' not in company_info:
+                        all_company_data.append(company_info)
+                        processed_tickers.add(ticker)
+
+    # Save all company data to a single CSV
+    if all_company_data:
+        save_company_info(all_company_data, out_dir, cfg.company_info_file)
 
 
 if __name__ == "__main__":
