@@ -139,7 +139,7 @@ class Config:
             raise ValueError("Config must contain at least one entry.")
         for e in entries:
             e.validate()
-        output_dir = raw.get("output_dir", "./data")
+        output_dir = raw.get("output_dir", "./data/market")
         company_info_file = raw.get("company_info_file", "company_info.csv")
         return Config(output_dir=output_dir, entries=entries, company_info_file=company_info_file)
 

@@ -294,7 +294,8 @@ def main():
         description="Find correlations between Google Trends and Stock Market data.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-    parser.add_argument('--stock-dir', default=str(project_root / 'data'), help="Directory with stock CSVs.")
+    parser.add_argument('--stock-dir', default=str(project_root / 'data' / 'Market'),
+                        help="Directory with stock CSVs.")
     parser.add_argument('--keywords-file', default=str(project_root / 'keywords.csv'),
                         help="Path to the keywords CSV file.")
     parser.add_argument('--cache-dir', default=str(project_root / 'data' / 'google_trends'),
