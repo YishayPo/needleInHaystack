@@ -9,13 +9,14 @@ from enum import Enum
 import datetime
 import re
 import urllib3
+from pathlib import Path
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 KeyWord = str
 KeyWords = List[str]
 RATE_LIMIT_EXCEED = "429"
-# proxies dashboard can be found at https://dashboard.webshare.io/dashboard?activityTimestampLte=%222025-07-06T22%3A31%3A18.134Z%22&activityTimestampGte=%222025-06-06T22%3A31%3A18.134Z%22
+# The default path is now just a placeholder. The actual path should be passed during initialization.
 PROXIES_PATH = "proxies.txt"
 
 
@@ -33,7 +34,7 @@ def no_data_returned_msg(keywords: KeyWords, timeframe: str) -> str:
 
 
 def rate_limit_exceeded_msg(
-    attempt: int, max_retries: int, backoff: int, error: str
+        attempt: int, max_retries: int, backoff: int, error: str
 ) -> str:
     return f"Rate limited ({RATE_LIMIT_EXCEED}). Retry {attempt}/{max_retries} after {backoff}s. Error: {error}"
 
@@ -59,29 +60,39 @@ class Messages:
     ERROR_FETCHING_DATA: Callable = error_fetching_data_msg
 
 
-def get_proxies_list(proxies_file: str = PROXIES_PATH) -> List[str]:
-    proxies = pd.read_csv(proxies_file, delimiter=":")
-    proxies["url"] = (
-        "http://"
-        + proxies["Username"]
-        + ":"
-        + proxies["Password"]
-        + "@"
-        + proxies["IP"]
-        + ":"
-        + proxies["Port"].astype(str)
-    )
-    return proxies.url.tolist()
+def get_proxies_list(proxies_file: Union[str, Path]) -> List[str]:
+    """Loads proxies from a file, now robustly handling file not found."""
+    proxies_path = Path(proxies_file)
+    if not proxies_path.exists():
+        warning(f"Proxies file not found at {proxies_path}. Continuing without proxies.")
+        return []
+    try:
+        proxies = pd.read_csv(proxies_path, delimiter=":")
+        proxies["url"] = (
+                "http://"
+                + proxies["Username"]
+                + ":"
+                + proxies["Password"]
+                + "@"
+                + proxies["IP"]
+                + ":"
+                + proxies["Port"].astype(str)
+        )
+        return proxies.url.tolist()
+    except Exception as e:
+        error(f"Could not parse proxies file at {proxies_path}: {e}")
+        return []
 
 
 class TrendFetcher:
     def __init__(
-        self,
-        keywords: Union[KeyWords, KeyWord],
-        timeframe: str = "today 12-m",
-        geo: str = "",
-        gprop: str = "",
-        max_retries: int = 3,
+            self,
+            keywords: Union[KeyWords, KeyWord],
+            timeframe: str = "today 12-m",
+            geo: str = "",
+            gprop: str = "",
+            max_retries: int = 3,
+            proxies_path: str = PROXIES_PATH  # NEW: Accept a path to the proxies file
     ):
         """
         Args:
@@ -90,6 +101,7 @@ class TrendFetcher:
             geo (str): Country code (e.g. "US", "IL"); empty string for worldwide.
             gprop (str): Category (e.g. "news", "images", "youtube"); empty for web search.
             max_retries (int): Number of attempts if a 429 (rate-limit) is encountered.
+            proxies_path (str): Path to the proxies.txt file.
         """
         self._keywords = [""]
         self._timeframe = ""
@@ -101,6 +113,7 @@ class TrendFetcher:
         self.geo = geo
         self.gprop = gprop
         self.max_retries = max_retries
+        self.proxies_path = proxies_path  # NEW: Store the path
 
     @property
     def timeframe(self) -> str:
@@ -129,10 +142,10 @@ class TrendFetcher:
         assert isinstance(value, str), "Timeframe must be a string."
         assert value.strip(), "Timeframe cannot be empty."
         assert (
-            " " in value
+                " " in value
         ), "Timeframe must contain a space to separate start and end dates."
         assert (
-            len(value.split(" ")) == 2
+                len(value.split(" ")) == 2
         ), "Timeframe must contain exactly two parts: start and end dates."
         first_part, second_part = value.split(" ")
         assert self._is_valid_datetime(first_part), f"Invalid start date: {first_part}"
@@ -215,7 +228,7 @@ class TrendFetcher:
         valid_gprops = ["", "news", "images", "youtube", "froogle"]
         assert isinstance(value, str), "Gprop must be a string."
         assert (
-            value in valid_gprops
+                value in valid_gprops
         ), f"Invalid gprop: {value}. Must be one of {valid_gprops}."
         self._gprop = value.strip()
 
@@ -256,7 +269,7 @@ class TrendFetcher:
 
     @staticmethod
     def _add_keyword_df_to_merge_df(
-        df: Optional[pd.DataFrame], keyword_df: pd.DataFrame
+            df: Optional[pd.DataFrame], keyword_df: pd.DataFrame
     ) -> pd.DataFrame:
         if df is None or df.empty:
             return keyword_df
@@ -271,7 +284,7 @@ class TrendFetcher:
         return pd.concat([df, keyword_df], axis=1)
 
     def __fetch_keywords(
-        self, pytrend: TrendReq, keywords: Optional[KeyWords] = None
+            self, pytrend: TrendReq, keywords: Optional[KeyWords] = None
     ) -> pd.DataFrame:
         if keywords is None:
             keywords = self.keywords
@@ -282,7 +295,7 @@ class TrendFetcher:
         return df
 
     def _fetch_without_retry(
-        self, pytrend: TrendReq, is_relative_intrest: bool = False
+            self, pytrend: TrendReq, is_relative_intrest: bool = False
     ) -> pd.DataFrame:
         if is_relative_intrest:
             df = self.__fetch_keywords(pytrend)
@@ -300,12 +313,13 @@ class TrendFetcher:
         """
         Fetch Google Trends data for the specified keywords.
         Returns a DataFrame with interest over time, or None if no data is returned.
-        Retries on HTTP 429 (rate limit exceeded).
+        Retries on HTTP 429 (rate limit exceeded), switching to proxies if available.
         """
         pytrend = TrendReq(hl="en-US", tz=self._get_local_offset())
-        # setup for retry logic
         attempt = 0
         backoff = 1
+        proxies = []
+        used_proxies = False
 
         while attempt < self.max_retries:
             try:
@@ -320,10 +334,20 @@ class TrendFetcher:
                         )
                     )
                     time.sleep(backoff)
-                    if pytrend.proxies is not None:
-                        proxies = get_proxies_list()
-                        pytrend = TrendReq(hl="en-US", tz=self._get_local_offset(), proxies=proxies, timeout=(10, 25), retries=len(proxies),requests_args={"verify": False})  # type: ignore
-                        warning("Trying to continue with proxies.")
+
+                    # --- NEW: Corrected proxy switching logic ---
+                    if not used_proxies:  # Only try to load proxies once
+                        proxies = get_proxies_list(self.proxies_path)
+                        used_proxies = True
+
+                    if proxies:
+                        warning("Rate limited. Switching to proxies.")
+                        pytrend = TrendReq(hl="en-US", tz=self._get_local_offset(), proxies=proxies,
+                                           timeout=(10, 25), retries=len(proxies),
+                                           requests_args={"verify": False})
+                    else:
+                        warning("Rate limited and no proxies available. Backing off...")
+
                     backoff *= 1.2
                 else:
                     error(Messages.ERROR_FETCHING_DATA(self.keywords, msg))
