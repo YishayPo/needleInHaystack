@@ -3,7 +3,8 @@ from pathlib import Path
 import pandas as pd
 
 # --- Configuration ---
-TARGET_COUNT = 5000
+TARGET_COUNT = 3500
+MIN_SAMPLE_SIZE_FOR_COMPLEX_TEMPLATES = 20
 OUTPUT_FILENAME = "keywords.csv"
 
 # --- Seed Categories and Words ---
@@ -59,15 +60,16 @@ SEED_CATEGORIES = {
         "Mitch McConnell", "Kevin McCarthy", "Alexandria Ocasio-Cortez", "Bernie Sanders",
         "Elizabeth Warren", "Ted Cruz", "Marco Rubio", "Gavin Newsom"
     ],
-    "geopolitics_israel": [
-        "Israel", "Palestine", "Gaza", "IDF", "Hamas", "Hezbollah", "West Bank",
-        "Iron Dome", "UNRWA", "Two-state solution", "Abraham Accords", "Jerusalem", "Al-Aqsa",
-        "Settlements", "BDS movement", "Peace talks", "Ceasefire", "Refugees", "Intifada", "Security fence",
-        "US Embassy in Jerusalem", "Golan Heights", "Sinai Peninsula", "Qassam rockets",
-        "Peace", "Two-state solution", "Nova music festival massacre", "October 7 attacks",
-        "Swords of Iron operation"
+    "geopolitics_israel_places": [
+        "Israel", "Palestine", "Gaza", "West Bank", "Jerusalem",
+        "Golan Heights", "Sinai Peninsula"
     ],
-    "geopolitics_global": [
+    "geopolitics_israel_conflicts": [
+        "Hamas", "Hezbollah", "IDF", "Iron Dome", "Settlements",
+        "Peace talks", "Ceasefire", "Intifada", "Security fence",
+        "BDS movement", "October 7 attacks", "Nova music festival massacre"
+    ],
+    "geopolitics_global_places": [
         "Ukraine", "Russia", "China", "Taiwan", "US", "Iran", "NATO", "Red Sea", "Middle East", "North Korea",
         "Syria", "Saudi Arabia", "India", "Pakistan", "Afghanistan", "Iraq", "Yemen", "Sudan", "Ethiopia"
     ],
@@ -141,10 +143,10 @@ TEMPLATES = [
     ("{product} vs competitor", "tech_product", "product"),
     ("{leader} tweet", "business_leader", "leader"),
     ("{leader} interview", "business_leader", "leader"),
-    ("{geopolitical_topic} conflict", "geopolitics_global", "geopolitical_topic"),
-    ("{geopolitical_topic} news", "geopolitics_global", "geopolitical_topic"),
-    ("war in {geopolitical_topic}", "geopolitics_global", "geopolitical_topic"),
-    ("US aid to {geopolitical_topic}", "geopolitics_global", "geopolitical_topic"),
+    ("{geopolitical_place} conflict", "geopolitics_global_places", "geopolitical_place"),
+    ("{geopolitical_place} news", "geopolitics_global_places", "geopolitical_place"),
+    ("war in {geopolitical_place}", "geopolitics_global_places", "geopolitical_place"),
+    ("US aid to {geopolitical_place}", "geopolitics_global_places", "geopolitical_place"),
     ("{economic_indicator} forecast", "economics", "economic_indicator"),
     ("impact of {economic_indicator}", "economics", "economic_indicator"),
     ("{social_theme} controversy", "social_esg", "social_theme"),
@@ -158,24 +160,22 @@ TEMPLATES = [
 COMPLEX_TEMPLATES = [
     # Template, Combined Category, Placeholder 1, Placeholder 2
     ("{company} vs {company}", "finance_company", "company", "company"),
-    ("{product} sales in {geopolitical_topic}", "economics", "product", "geopolitical_topic"),
+    ("{product} sales in {geopolitical_place}", "economics", "product", "geopolitical_place"),
     ("{leader} on {social_theme}", "social_esg", "leader", "social_theme"),
-    ("{company} response to {geopolitical_topic}", "geopolitics_global", "company", "geopolitical_topic"),
+    ("{company} response to {geopolitical_topic}", "geopolitics", "company", "geopolitical_topic"),
 ]
 
 
 def generate_keywords():
     """Generates a large, unique, and categorized list of meaningful keywords."""
-    print("Generating meaningful keywords with categories...")
-
     keyword_data = []
 
-    # 1. Add all seed words directly with their category
+    # 1. Add seeds directly
     for category, seeds in SEED_CATEGORIES.items():
         for seed in seeds:
             keyword_data.append({"keyword": seed, "category": category})
 
-    # 2. Populate simple templates
+    # 2. Prepare placeholder lists
     all_companies = (
             SEED_CATEGORIES["tech_company"] + SEED_CATEGORIES["israeli_company"] +
             SEED_CATEGORIES["finance_company"] + SEED_CATEGORIES["health_company"] +
@@ -183,13 +183,16 @@ def generate_keywords():
     )
     all_leaders = SEED_CATEGORIES["business_leader"] + SEED_CATEGORIES["israeli_leader"] + SEED_CATEGORIES[
         "us_political_figure"]
-    all_geopolitics = SEED_CATEGORIES["geopolitics_israel"] + SEED_CATEGORIES["geopolitics_global"]
+    geopolitics_places = SEED_CATEGORIES["geopolitics_israel_places"] + SEED_CATEGORIES[
+        "geopolitics_global_places"]
+    geopolitics_all = geopolitics_places + SEED_CATEGORIES["geopolitics_israel_conflicts"]
 
     placeholder_map = {
         "company": all_companies,
         "product": SEED_CATEGORIES["tech_product"],
         "leader": all_leaders,
-        "geopolitical_topic": all_geopolitics,
+        "geopolitical_place": geopolitics_places,
+        "geopolitical_topic": geopolitics_all,
         "economic_indicator": SEED_CATEGORIES["economics"],
         "social_theme": SEED_CATEGORIES["social_esg"],
         "cultural_event": SEED_CATEGORIES["culture_event"],
@@ -197,38 +200,29 @@ def generate_keywords():
         "generic_concept": SEED_CATEGORIES["general_trends"] + SEED_CATEGORIES["health_lifestyle"],
     }
 
+    # 3. Simple templates
     for template, category, placeholder_key in TEMPLATES:
-        placeholder_tag = "{" + placeholder_key + "}"
-        if placeholder_tag in template:
-            for seed in placeholder_map[placeholder_key]:
-                keyword = template.replace(placeholder_tag, seed)
-                keyword_data.append({"keyword": keyword, "category": category})
+        for seed in placeholder_map[placeholder_key]:
+            keyword = template.replace("{" + placeholder_key + "}", seed)
+            keyword_data.append({"keyword": keyword, "category": category})
 
-    # 3. Populate complex templates to increase keyword count
+    # 4. Complex templates
     for template, category, p_key1, p_key2 in COMPLEX_TEMPLATES:
         list1 = placeholder_map[p_key1]
         list2 = placeholder_map[p_key2]
-        # To avoid a massive number of combinations, sample from the lists
-        sample_size1 = min(20, len(list1))
-        sample_size2 = min(20, len(list2))
+        #  Use samples to generate fewer combinations
+        sample_size1 = min(MIN_SAMPLE_SIZE_FOR_COMPLEX_TEMPLATES, len(list1))
+        sample_size2 = min(MIN_SAMPLE_SIZE_FOR_COMPLEX_TEMPLATES, len(list2))
         for seed1 in random.sample(list1, k=sample_size1):
             for seed2 in random.sample(list2, k=sample_size2):
                 if seed1 == seed2: continue
                 keyword = template.replace("{" + p_key1 + "}", seed1).replace("{" + p_key2 + "}", seed2)
                 keyword_data.append({"keyword": keyword, "category": category})
 
-    # 4. Finalize the list: create DataFrame, drop duplicates, and shuffle
+    # 5. Finalize
     df = pd.DataFrame(keyword_data)
     df.drop_duplicates(subset="keyword", inplace=True)
     df = df.sample(frac=1).reset_index(drop=True)
-
-    # 5. Truncate to the target count
-    if len(df) < TARGET_COUNT:
-        print(
-            f"Warning: Generated only {len(df)} unique keywords, which is less than the target of {TARGET_COUNT}.")
-        final_df = df
-    else:
-        final_df = df.head(TARGET_COUNT)
 
     # 6. Write to CSV file in the project's root directory
     try:
@@ -238,9 +232,8 @@ def generate_keywords():
         project_root = Path.cwd()
 
     output_path = project_root / OUTPUT_FILENAME
-    final_df.to_csv(output_path, index=False)
-
-    print(f"Successfully generated and saved {len(final_df)} keywords to '{output_path}'.")
+    df.to_csv(output_path, index=False)
+    print(f"Successfully generated and saved {len(df)} keywords to:\n'{output_path}'")
 
 
 if __name__ == "__main__":
