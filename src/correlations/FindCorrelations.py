@@ -11,7 +11,15 @@ from logging import getLogger, StreamHandler, Formatter, INFO
 from rich.console import Console
 from tqdm import tqdm
 
-from google_trends.TrendFetcher import TrendFetcher
+try:
+    src_path = Path(__file__).parent.parent.resolve()
+    if str(src_path) not in sys.path:
+        sys.path.append(str(src_path))
+    from google_trends.TrendFetcher import TrendFetcher
+except (ImportError, NameError):
+    print("Could not import TrendFetcher. Make sure this script is in the correct directory")
+    print("and that the google_trends module is available in the 'src' directory.")
+    sys.exit(1)
 
 # --- Global Variables & Constants ---
 CONSOLE = Console()
@@ -121,29 +129,42 @@ class CorrelationFinder:
         """
         Fetches Google Trends data, adding a random delay and periodic breaks to avoid rate-limiting.
         """
-        CONSOLE.log(f"Starting Google Trends data fetch for {len(keywords_to_fetch)} keywords...")
-        CONSOLE.log(f"Data will be cached in [cyan]{self.cache_dir}[/cyan].")
+        # --- Check Cache ---
+        CONSOLE.log(f"Checking cache for {len(keywords_to_fetch)} keywords...")
+
+        non_cached_keywords = []
+        for keyword in keywords_to_fetch:
+            safe_filename = "".join(c for c in keyword if c.isalnum() or c in (' ', '_')).rstrip().replace(
+                ' ', '_') + ".csv"
+            cache_path = self.cache_dir / safe_filename
+            if not cache_path.exists():
+                non_cached_keywords.append(keyword)
+
+        cached_count = len(keywords_to_fetch) - len(non_cached_keywords)
+        CONSOLE.log(f"Found [bold green]{cached_count}[/bold green] cached keywords. "
+                    f"Fetching [bold yellow]{len(non_cached_keywords)}[/bold yellow] new keywords.")
+
+        if not non_cached_keywords:
+            CONSOLE.log("[bold green]All required Google Trends data is already cached.[/bold green]")
+            return
 
         proxies_path = str(self.project_root / 'proxies.txt')
         request_counter = 0
+        consecutive_errors_count = 0
 
-        for keyword in tqdm(keywords_to_fetch, desc="Fetching Trends"):
-            # --- RATE-LIMITING FIX 1: Take a long break every 50 requests ---
-            if request_counter > 0 and request_counter % 50 == 0:
+        # --- Loop only over the keywords that need to be fetched ---
+        for keyword in tqdm(non_cached_keywords, desc="Fetching New Trends"):
+            if request_counter > 0 and request_counter % 40 == 0:
                 break_time = random.uniform(30, 60)
                 CONSOLE.log(
                     f"\n[bold magenta]Taking a {break_time:.0f}-second break to appear more human...[/bold magenta]")
                 time.sleep(break_time)
 
-            # --- RATE-LIMITING FIX 2: Use a longer, more random delay for every request ---
             time.sleep(random.uniform(2, 5))
 
             safe_filename = "".join(c for c in keyword if c.isalnum() or c in (' ', '_')).rstrip().replace(
                 ' ', '_') + ".csv"
             cache_path = self.cache_dir / safe_filename
-
-            if cache_path.exists():
-                continue
 
             try:
                 fetcher = TrendFetcher(
@@ -152,16 +173,23 @@ class CorrelationFinder:
                     proxies_path=proxies_path
                 )
                 trends_df = fetcher.fetch()
-                request_counter += 1  # Increment counter only on a successful-looking attempt
+                request_counter += 1
 
                 if trends_df is not None and not trends_df.empty:
                     trends_df.to_csv(cache_path)
                 else:
                     cache_path.touch()
+                consecutive_errors_count = 0
+
             except Exception as e:
-                # --- RATE-LIMITING FIX 3: Don't crash on failure, just log and continue ---
+                consecutive_errors_count += 1
                 CONSOLE.log(
                     f"\n[bold red]Failed to fetch '{keyword}' after all retries. Skipping. Error: {e}[/bold red]")
+
+                if consecutive_errors_count >= 3:
+                    CONSOLE.log("[bold red]Too many fetch errors (3). Terminating pipeline.[/bold red]")
+                    sys.exit(1)
+
                 continue
 
         CONSOLE.log("[bold green]Google Trends data fetching complete.[/bold green]")
@@ -289,12 +317,6 @@ class CorrelationFinder:
 
 def main():
     """Main function to run the correlation analysis from the command line."""
-
-    # --- Add src directory to path to allow for absolute imports ---
-    src_path = Path(__file__).parent.parent.resolve()
-    if str(src_path) not in sys.path:
-        sys.path.append(str(src_path))
-
     script_path = Path(__file__).resolve()
     project_root = script_path.parents[2]
 
