@@ -1,33 +1,38 @@
-# src/correlations/FindCorrelations.py
-
 from __future__ import annotations
-
 import argparse
-import os
 import sys
 import time
 import random
+import warnings
+import pandas as pd
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-
-import pandas as pd
+from logging import getLogger, StreamHandler, Formatter, INFO
 from rich.console import Console
 from tqdm import tqdm
 
-# --- Add src directory to path to allow for absolute imports ---
-try:
-    src_path = Path(__file__).parent.parent.resolve()
-    if str(src_path) not in sys.path:
-        sys.path.append(str(src_path))
-    from google_trends.TrendFetcher import TrendFetcher
-except (ImportError, NameError):
-    print("Could not import TrendFetcher. Make sure this script is in the correct directory")
-    print("and that the google_trends module is available in the 'src' directory.")
-    sys.exit(1)
+from google_trends.TrendFetcher import TrendFetcher
 
 # --- Global Variables & Constants ---
 CONSOLE = Console()
 TRENDS_TIMEFRAME = "2020-01-01 2025-08-01"
+
+
+def setup_logging_and_warnings():
+    """
+    Configures logging to be more readable and suppresses noisy FutureWarnings
+    from the pandas library used by pytrends.
+    """
+    warnings.simplefilter(action='ignore', category=FutureWarning)
+
+    log = getLogger('root')
+    log.setLevel(INFO)
+    handler = StreamHandler()
+    formatter = Formatter('%(asctime)s - %(levelname)s - %(message)s', datefmt='%H:%M:%S')
+    handler.setFormatter(formatter)
+
+    if not log.handlers:
+        log.addHandler(handler)
 
 
 class CorrelationFinder:
@@ -284,11 +289,14 @@ class CorrelationFinder:
 
 def main():
     """Main function to run the correlation analysis from the command line."""
-    try:
-        script_path = Path(__file__).resolve()
-        project_root = script_path.parents[2]
-    except NameError:
-        project_root = Path.cwd()
+
+    # --- Add src directory to path to allow for absolute imports ---
+    src_path = Path(__file__).parent.parent.resolve()
+    if str(src_path) not in sys.path:
+        sys.path.append(str(src_path))
+
+    script_path = Path(__file__).resolve()
+    project_root = script_path.parents[2]
 
     parser = argparse.ArgumentParser(
         description="Find correlations between Google Trends and Stock Market data.",
@@ -328,4 +336,5 @@ def main():
 
 
 if __name__ == "__main__":
+    setup_logging_and_warnings()
     main()
