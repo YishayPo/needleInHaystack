@@ -1,8 +1,6 @@
 from __future__ import annotations
-import sys
 import warnings
 import pandas as pd
-import numpy as np
 import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -11,6 +9,10 @@ from rich.console import Console
 from tqdm import tqdm
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+
+import numpy as np
+
+np.seterr(all="ignore")
 
 # --- Global Variables & Constants ---
 CONSOLE = Console()
@@ -24,6 +26,20 @@ RESULTS_FILE = PROJECT_ROOT / "correlation_results.csv"
 PLOTS_DIR = PROJECT_ROOT / "plots"
 
 SPARSITY_DISCARD_THRESHOLD = 0.8  # 80% -> discard completely
+
+COMPANIES = [
+    'APPLE', 'Google', 'Tesla'
+]
+AGENDA_FOCUSED = [
+    'AIEthics', 'AQWA', 'CircularEconomy', 'CleanWater', 'FRDM',
+    'GenderDiversity', 'HydrogenCCS', 'ICLN', 'LGBT', 'LGBTQEquality',
+    'PHO', 'SHE', 'SupportIsrael', 'SupportUkraine', 'TAN',
+    'VeteranFriendly', 'VETS'
+]
+
+INDICES_AND_SECTOR_ETFS = [
+    'EIS', 'ERUS', 'ISRA', 'LargeTech', 'RSX', 'S&P500'
+]
 
 
 def setup_logging_and_warnings():
@@ -122,21 +138,30 @@ class CorrelationFinder:
 
     @staticmethod
     def _preprocess_trend_series(trend_series: pd.Series) -> Tuple[pd.Series, float]:
-        """Remove zeros, apply Z-score normalization, return series and sparsity ratio."""
+        """Remove zeros, apply Z-score normalization safely, return series and sparsity ratio."""
         sparsity = (trend_series == 0).mean()
         nonzero = trend_series[trend_series != 0]
         if nonzero.empty:
             return pd.Series(dtype=float), sparsity
-        # z-score
-        standardized = (nonzero - nonzero.mean()) / nonzero.std(ddof=0)
+
+        std = nonzero.std(ddof=0)
+        if std == 0 or np.isnan(std):
+            # constant values -> return zeros
+            standardized = pd.Series(0.0, index=nonzero.index)
+        else:
+            standardized = (nonzero - nonzero.mean()) / std
+
         return standardized, sparsity
 
     @staticmethod
     def _calculate_cross_correlation(series1: pd.Series, series2: pd.Series, max_lag: int) -> Tuple[
         int, float]:
-        """Find best lag correlation in weeks."""
+        """Find best lag correlation in weeks, safely handling small/constant data."""
+        if len(series1.dropna()) < 2 or len(series2.dropna()) < 2:
+            return 0, 0.0
         if series1.std() == 0 or series2.std() == 0:
             return 0, 0.0
+
         best_lag, max_corr = 0, 0.0
         for lag in range(-max_lag, max_lag + 1):
             corr = series1.corr(series2.shift(lag))
@@ -218,38 +243,75 @@ class CorrelationFinder:
         df['Abs_Correlation'] = df['Correlation'].abs()
         return df.sort_values(by='Abs_Correlation', ascending=False).drop(columns=['Abs_Correlation'])
 
-    def plot_top_correlations(self, results_df: pd.DataFrame, top_n: int = 10):
-        """Generate and save interactive plots for top correlations."""
+    def plot_top_correlations(self, results_df: pd.DataFrame):
+        """Generate and save interactive plots for top 5 correlations in each category group."""
+
         if results_df.empty:
             return
-        top_results = pd.concat([
-            results_df.nlargest(top_n, 'Correlation'),
-            results_df.nsmallest(top_n, 'Correlation')
-        ]).drop_duplicates()
+
+        if 'Abs_Correlation' not in results_df.columns:
+            results_df = results_df.copy()
+            results_df['Abs_Correlation'] = results_df['Correlation'].abs()
+
+        grouped_results = []
+        for group_name, tickers in {
+            "COMPANIES": COMPANIES,
+            "AGENDA_FOCUSED": AGENDA_FOCUSED,
+            "INDICES_AND_SECTOR_ETFS": INDICES_AND_SECTOR_ETFS
+        }.items():
+            group_df = results_df[results_df['Stock'].isin(tickers)]
+            if not group_df.empty:
+                top5 = group_df.nlargest(5, 'Abs_Correlation')
+                grouped_results.append(top5)
+
+                # log summary
+                CONSOLE.log(f"[cyan]{group_name}[/cyan] — top 5 correlations:")
+                CONSOLE.log(top5[['Stock', 'Keyword', 'Metric', 'Best_Lag_Weeks', 'Correlation']].to_string())
+
+        if not grouped_results:
+            return
+
+        top_results = pd.concat(grouped_results).drop_duplicates()
 
         for _, row in top_results.iterrows():
-            stock, keyword, metric, lag, corr = row['Stock'], row['Keyword'], row['Metric'], row[
-                'Best_Lag_Weeks'], row['Correlation']
+            stock, keyword, metric, lag, corr = (
+                row['Stock'], row['Keyword'], row['Metric'],
+                row['Best_Lag_Weeks'], row['Correlation']
+            )
             stock_df = self.stock_data_weekly[stock]
-            trend_df = pd.read_csv(TRENDS_CACHE_DIR / f"{keyword.replace(' ', '_')}.csv", index_col='date',
-                                   parse_dates=True)
-            trend_series, _ = self._preprocess_trend_series(trend_df[keyword].astype(float).fillna(0))
+            trend_df = pd.read_csv(
+                TRENDS_CACHE_DIR / f"{keyword.replace(' ', '_')}.csv",
+                index_col='date', parse_dates=True
+            )
+            trend_series, _ = self._preprocess_trend_series(
+                trend_df[keyword].astype(float).fillna(0)
+            )
             shifted_trend = trend_series.shift(lag)
-            aligned_stock, aligned_trend = stock_df.align(shifted_trend, join='inner', axis=0)
+            aligned_stock, aligned_trend = stock_df.align(
+                shifted_trend, join='inner', axis=0
+            )
 
             fig = make_subplots(specs=[[{"secondary_y": True}]])
             fig.add_trace(
-                go.Scatter(x=aligned_stock.index, y=aligned_stock[metric], name=f"{stock} {metric}"),
-                secondary_y=False)
+                go.Scatter(x=aligned_stock.index, y=aligned_stock[metric],
+                           name=f"{stock} {metric}"),
+                secondary_y=False
+            )
             fig.add_trace(
-                go.Scatter(x=aligned_trend.index, y=aligned_trend, name=f"Trend '{keyword}' (Lag {lag}w)"),
-                secondary_y=True)
-            fig.update_layout(title=f"{stock} vs '{keyword}' — Correlation {corr:.3f} (Lag {lag}w)",
-                              title_x=0.5)
+                go.Scatter(x=aligned_trend.index, y=aligned_trend,
+                           name=f"Trend '{keyword}' (Lag {lag}w)"),
+                secondary_y=True
+            )
+            fig.update_layout(
+                title=f"{stock} vs '{keyword}' — Correlation {corr:.3f} (Lag {lag}w)",
+                title_x=0.5
+            )
 
             fig.write_html(PLOTS_DIR / f"{stock}_{keyword}_{metric}.html".replace(' ', '_'))
 
-        CONSOLE.log(f"[bold green]Saved {len(top_results)} plots to '{PLOTS_DIR}'[/bold green]")
+        CONSOLE.log(
+            f"[bold green]Saved {len(top_results)} plots (5 per group) to '{PLOTS_DIR}'[/bold green]"
+        )
 
     def execute_pipeline(self):
         """Full pipeline: load data, run analysis, save results, plot."""
@@ -265,7 +327,21 @@ class CorrelationFinder:
 
         results_df.to_csv(RESULTS_FILE, index=False)
         CONSOLE.log(f"[bold green]Results saved to {RESULTS_FILE}[/bold green]")
-        print(results_df.head(10).to_string())
+
+        for group_name, tickers in {
+            "COMPANIES": COMPANIES,
+            "AGENDA_FOCUSED": AGENDA_FOCUSED,
+            "INDICES_AND_SECTOR_ETFS": INDICES_AND_SECTOR_ETFS
+        }.items():
+            group_df = results_df[results_df['Stock'].isin(tickers)]
+            if not group_df.empty:
+                group_df = group_df.copy()
+                group_df['Abs_Correlation'] = group_df['Correlation'].abs()
+                top5 = group_df.nlargest(5, 'Abs_Correlation')
+
+                CONSOLE.log(f"[cyan]{group_name}[/cyan] — top 5 correlations:")
+                print(top5[['Stock', 'Keyword', 'Metric', 'Best_Lag_Weeks', 'Correlation']].to_string())
+
         self.plot_top_correlations(results_df)
 
 
