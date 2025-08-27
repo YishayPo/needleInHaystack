@@ -1,5 +1,5 @@
 {
-    "output_dir": "./data/clustering",
+    "output_dir": "./data/market",
     "entries": [
         {
             "name": "S&P500",
