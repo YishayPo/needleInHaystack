@@ -80,9 +80,9 @@ def fetch_and_cache_trends(keywords_to_fetch: List[str], trends_cache_dir: Path,
         except Exception as e:
             consecutive_errors_count += 1
             CONSOLE.log(f"\n[bold red]Failed to fetch '{keyword}'. Skipping. Error: {e}[/bold red]")
-            if consecutive_errors_count >= 3:
+            if consecutive_errors_count >= 10:
                 CONSOLE.log(
-                    "[bold red]Too many consecutive fetch errors (3). Terminating pipeline.[/bold red]")
+                    "[bold red]Too many consecutive fetch errors (10). Terminating pipeline.[/bold red]")
                 sys.exit(1)
             continue
     CONSOLE.log("[bold green]Google Trends data fetching complete.[/bold green]")
