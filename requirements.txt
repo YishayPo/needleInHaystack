@@ -11,3 +11,6 @@ tqdm
 pydantic
 rich
 ipywidgets
+matplotlib
+numpy
+seaborn
