@@ -3004,9 +3004,14 @@ Yuli Edelstein on social entrepreneurship,social_esg
 investing in smartwatch health features,finance_company
 ISRG,economics
 RSX,economics
-US_Transportation,economics
-Russell2000,economics
-US_Biotech,economics
+US Transportation,economics
+Russell 2000,economics
+US Biotech,economics
+US Transportation,economics
+Russell 2000,economics
+US Biotech,economics
+US Consumer Staples,economics
+US Consumer Discretionary,economics
 Google,economics
 V,economics
 US_Consumer_Staples,economics
@@ -3026,7 +3031,7 @@ ORCL,economics
 TAN,economics
 AMZN,economics
 INTC,economics
-US_Tech_Sector,economics
+US Tech Sector,economics
 APPLE,economics
 TMO,economics
 SHE,economics
@@ -3034,63 +3039,63 @@ ADSK,economics
 NEE,economics
 MSFT,economics
 UBER,economics
-Rebuilding_America_Grid_Chips,economics
-GenderDiversity,economics
-Nasdaq100,economics
+Rebuilding America Grid Chips,economics
+Gender Diversity,economics
+Nasdaq 100,economics
 AMD,economics
 NVDA,economics
-US_Regional_Banks,economics
+US Regional Banks,economics
 XOM,economics
 CVX,economics
-US_Industrials,economics
+US Industrials,economics
 IBM,economics
-LargeTech,economics
-AIEthics,economics
-US_Homebuilders,economics
+Large Tech,economics
+AI Ethics,economics
+US Homebuilders,economics
 GS,economics
-US_Communication_Services,economics
+US Communication Services,economics
 PANW,economics
-US_Real_Estate,economics
-US_Financials_Sector,economics
-US_HealthCare_Sector,economics
-CircularEconomy,economics
-AI_Infrastructure_Stack,economics
-US_Banks,economics
-SupportUkraine,economics
+US Real Estate,economics
+US Financials Sector,economics
+US HealthCare Sector,economics
+Circular Economy,economics
+AI Infrastructure Stack,economics
+US Banks,economics
+Support Ukraine,economics
 NFLX,economics
 JPM,economics
 TSLA,economics
 COP,economics
-US_Materials,economics
+US Materials,economics
 DHR,economics
 GOOGL,economics
-VeteranFriendly,economics
+Veteran Friendly,economics
 Tesla,economics
 META,economics
 CRWD,economics
 SHOP,economics
 AVGO,economics
 REGN,economics
-US_Energy,economics
-US_Utilities,economics
-DowJones30,economics
+US Energy,economics
+US Utilities,economics
+Dow Jones 30,economics
 PHO,economics
 EIS,economics
-S&P500_ETF,economics
+S&P500 ETF,economics
 FRDM,economics
-S&P500,economics
+S&P 500,economics
 NVO,economics
-SupportIsrael,economics
+Support Israel,economics
 MS,economics
 LGBTQEquality,economics
 UNH,economics
 MA,economics
 SLB,economics
 AAPL,economics
-HydrogenCCS,economics
+Hydrogen CCS,economics
 SAP,economics
 ASML,economics
 JNJ,economics
 CRM,economics
-CleanWater,economics
+Clean Water,economics
 BLK,economics
