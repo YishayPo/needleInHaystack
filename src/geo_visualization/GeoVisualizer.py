@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.express as px
 import os
 
-# --- Data Dictionaries (for enrichment) ---
+# --- Data Dictionaries ---
 STATE_CORPORATE_TAX_RATES = {
     'AL': 0.065, 'AK': 0.094, 'AZ': 0.049, 'AR': 0.048, 'CA': 0.0884, 'CO': 0.044,
     'CT': 0.075, 'DE': 0.087, 'FL': 0.055, 'GA': 0.0575, 'HI': 0.064, 'ID': 0.058,
