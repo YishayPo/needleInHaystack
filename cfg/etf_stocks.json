@@ -1,0 +1,3515 @@
+{
+    "output_dir": "./data/market",
+    "entries": [
+        {
+            "name": "GS",
+            "ticker": "GS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CAT",
+            "ticker": "CAT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HD",
+            "ticker": "HD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SHW",
+            "ticker": "SHW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UNH",
+            "ticker": "UNH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "V",
+            "ticker": "V",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AXP",
+            "ticker": "AXP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MCD",
+            "ticker": "MCD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JPM",
+            "ticker": "JPM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMGN",
+            "ticker": "AMGN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TRV",
+            "ticker": "TRV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IBM",
+            "ticker": "IBM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CRM",
+            "ticker": "CRM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AAPL",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMZN",
+            "ticker": "AMZN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BA",
+            "ticker": "BA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HON",
+            "ticker": "HON",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JNJ",
+            "ticker": "JNJ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MMM",
+            "ticker": "MMM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PG",
+            "ticker": "PG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVX",
+            "ticker": "CVX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DIS",
+            "ticker": "DIS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WMT",
+            "ticker": "WMT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TEVA",
+            "ticker": "TEVA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CYBR",
+            "ticker": "CYBR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CHKP",
+            "ticker": "CHKP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WIX",
+            "ticker": "WIX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVMI",
+            "ticker": "NVMI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MNDY",
+            "ticker": "MNDY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSEM",
+            "ticker": "TSEM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GLBE",
+            "ticker": "GLBE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSM",
+            "ticker": "TSM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GILD",
+            "ticker": "GILD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMGN",
+            "ticker": "AMGN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ALNY",
+            "ticker": "ALNY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "REGN",
+            "ticker": "REGN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VRTX",
+            "ticker": "VRTX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IQV",
+            "ticker": "IQV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INSM",
+            "ticker": "INSM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ARGX",
+            "ticker": "ARGX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MTD",
+            "ticker": "MTD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NTRA",
+            "ticker": "NTRA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BIIB",
+            "ticker": "BIIB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ONC",
+            "ticker": "ONC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UTHR",
+            "ticker": "UTHR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WAT",
+            "ticker": "WAT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INCY",
+            "ticker": "INCY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BNTX",
+            "ticker": "BNTX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ILMN",
+            "ticker": "ILMN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NBIX",
+            "ticker": "NBIX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GMAB",
+            "ticker": "GMAB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MEDP",
+            "ticker": "MEDP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BMRN",
+            "ticker": "BMRN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXEL",
+            "ticker": "EXEL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IONS",
+            "ticker": "IONS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HALO",
+            "ticker": "HALO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MDGL",
+            "ticker": "MDGL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FSLR",
+            "ticker": "FSLR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BE",
+            "ticker": "BE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NXT",
+            "ticker": "NXT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ORA",
+            "ticker": "ORA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ENPH",
+            "ticker": "ENPH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RUN",
+            "ticker": "RUN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CWEN",
+            "ticker": "CWEN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CYBR",
+            "ticker": "CYBR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TEVA",
+            "ticker": "TEVA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CHKP",
+            "ticker": "CHKP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WIX",
+            "ticker": "WIX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DOX",
+            "ticker": "DOX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MNDY",
+            "ticker": "MNDY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VRNS",
+            "ticker": "VRNS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "S",
+            "ticker": "S",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FROG",
+            "ticker": "FROG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVMI",
+            "ticker": "NVMI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSEM",
+            "ticker": "TSEM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ORA",
+            "ticker": "ORA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GLBE",
+            "ticker": "GLBE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DHI",
+            "ticker": "DHI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LEN",
+            "ticker": "LEN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PHM",
+            "ticker": "PHM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVR",
+            "ticker": "NVR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TOL",
+            "ticker": "TOL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LOW",
+            "ticker": "LOW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HD",
+            "ticker": "HD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BLD",
+            "ticker": "BLD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SHW",
+            "ticker": "SHW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LII",
+            "ticker": "LII",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TMHC",
+            "ticker": "TMHC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BLDR",
+            "ticker": "BLDR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MAS",
+            "ticker": "MAS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IBP",
+            "ticker": "IBP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OC",
+            "ticker": "OC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MTH",
+            "ticker": "MTH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KBH",
+            "ticker": "KBH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVCO",
+            "ticker": "CVCO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MHO",
+            "ticker": "MHO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FND",
+            "ticker": "FND",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SKY",
+            "ticker": "SKY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SSD",
+            "ticker": "SSD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXP",
+            "ticker": "EXP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TPH",
+            "ticker": "TPH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FBIN",
+            "ticker": "FBIN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CRDO",
+            "ticker": "CRDO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FN",
+            "ticker": "FN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BE",
+            "ticker": "BE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SATS",
+            "ticker": "SATS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KTOS",
+            "ticker": "KTOS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IONQ",
+            "ticker": "IONQ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NXT",
+            "ticker": "NXT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CDE",
+            "ticker": "CDE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ENSG",
+            "ticker": "ENSG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XTSLA",
+            "ticker": "XTSLA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HIMS",
+            "ticker": "HIMS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SPXC",
+            "ticker": "SPXC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "STRL",
+            "ticker": "STRL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GTLS",
+            "ticker": "GTLS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UMBF",
+            "ticker": "UMBF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RMBS",
+            "ticker": "RMBS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BBIO",
+            "ticker": "BBIO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MOD",
+            "ticker": "MOD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVAV",
+            "ticker": "AVAV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVLT",
+            "ticker": "CVLT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HQY",
+            "ticker": "HQY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IDCC",
+            "ticker": "IDCC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WTS",
+            "ticker": "WTS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OKLO",
+            "ticker": "OKLO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UBER",
+            "ticker": "UBER",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UNP",
+            "ticker": "UNP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UAL",
+            "ticker": "UAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DAL",
+            "ticker": "DAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NSC",
+            "ticker": "NSC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UPS",
+            "ticker": "UPS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FDX",
+            "ticker": "FDX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CSX",
+            "ticker": "CSX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ODFL",
+            "ticker": "ODFL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LUV",
+            "ticker": "LUV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXPD",
+            "ticker": "EXPD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XPO",
+            "ticker": "XPO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CHRW",
+            "ticker": "CHRW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JBHT",
+            "ticker": "JBHT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AAL",
+            "ticker": "AAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SAIA",
+            "ticker": "SAIA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "R",
+            "ticker": "R",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ALK",
+            "ticker": "ALK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LYFT",
+            "ticker": "LYFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KNX",
+            "ticker": "KNX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JOBY",
+            "ticker": "JOBY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GXO",
+            "ticker": "GXO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KEX",
+            "ticker": "KEX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LSTR",
+            "ticker": "LSTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SKYW",
+            "ticker": "SKYW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RKT",
+            "ticker": "RKT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COOP",
+            "ticker": "COOP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TBBK",
+            "ticker": "TBBK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PFSI",
+            "ticker": "PFSI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AX",
+            "ticker": "AX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "C",
+            "ticker": "C",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CFG",
+            "ticker": "CFG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WD",
+            "ticker": "WD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RF",
+            "ticker": "RF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WAL",
+            "ticker": "WAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VLY",
+            "ticker": "VLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CADE",
+            "ticker": "CADE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CMA",
+            "ticker": "CMA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NTRS",
+            "ticker": "NTRS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABCB",
+            "ticker": "ABCB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BANC",
+            "ticker": "BANC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ZION",
+            "ticker": "ZION",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JXN",
+            "ticker": "JXN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KEY",
+            "ticker": "KEY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BPOP",
+            "ticker": "BPOP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BK",
+            "ticker": "BK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FIBK",
+            "ticker": "FIBK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FNB",
+            "ticker": "FNB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EWBC",
+            "ticker": "EWBC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BOKF",
+            "ticker": "BOKF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CFG",
+            "ticker": "CFG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RF",
+            "ticker": "RF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WAL",
+            "ticker": "WAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ZION",
+            "ticker": "ZION",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EWBC",
+            "ticker": "EWBC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VLY",
+            "ticker": "VLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WBS",
+            "ticker": "WBS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SSB",
+            "ticker": "SSB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FHN",
+            "ticker": "FHN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TFC",
+            "ticker": "TFC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HBAN",
+            "ticker": "HBAN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MTB",
+            "ticker": "MTB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BPOP",
+            "ticker": "BPOP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UMBF",
+            "ticker": "UMBF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SNV",
+            "ticker": "SNV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ONB",
+            "ticker": "ONB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FLG",
+            "ticker": "FLG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WTFC",
+            "ticker": "WTFC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OZK",
+            "ticker": "OZK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CFR",
+            "ticker": "CFR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AUB",
+            "ticker": "AUB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COLB",
+            "ticker": "COLB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PB",
+            "ticker": "PB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CADE",
+            "ticker": "CADE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PNFP",
+            "ticker": "PNFP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FERG",
+            "ticker": "FERG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XYL",
+            "ticker": "XYL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ECL",
+            "ticker": "ECL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AWK",
+            "ticker": "AWK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ROP",
+            "ticker": "ROP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ACM",
+            "ticker": "ACM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AOS",
+            "ticker": "AOS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PNR",
+            "ticker": "PNR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VLTO",
+            "ticker": "VLTO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WMS",
+            "ticker": "WMS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MLI",
+            "ticker": "MLI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IEX",
+            "ticker": "IEX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CNM",
+            "ticker": "CNM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WAT",
+            "ticker": "WAT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TTEK",
+            "ticker": "TTEK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WTRG",
+            "ticker": "WTRG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MWA",
+            "ticker": "MWA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ITRI",
+            "ticker": "ITRI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VMI",
+            "ticker": "VMI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WTS",
+            "ticker": "WTS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ZWS",
+            "ticker": "ZWS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BMI",
+            "ticker": "BMI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FELE",
+            "ticker": "FELE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SBS",
+            "ticker": "SBS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CWT",
+            "ticker": "CWT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AAPL",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVGO",
+            "ticker": "AVGO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMZN",
+            "ticker": "AMZN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "META",
+            "ticker": "META",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOGL",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOG",
+            "ticker": "GOOG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NFLX",
+            "ticker": "NFLX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COST",
+            "ticker": "COST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PLTR",
+            "ticker": "PLTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TMUS",
+            "ticker": "TMUS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CSCO",
+            "ticker": "CSCO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMD",
+            "ticker": "AMD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LIN",
+            "ticker": "LIN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PEP",
+            "ticker": "PEP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INTU",
+            "ticker": "INTU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BKNG",
+            "ticker": "BKNG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "QCOM",
+            "ticker": "QCOM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SHOP",
+            "ticker": "SHOP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "APP",
+            "ticker": "APP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MU",
+            "ticker": "MU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TXN",
+            "ticker": "TXN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMD",
+            "ticker": "AMD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JPM",
+            "ticker": "JPM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NOW",
+            "ticker": "NOW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INTU",
+            "ticker": "INTU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DIS",
+            "ticker": "DIS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ACN",
+            "ticker": "ACN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MU",
+            "ticker": "MU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VZ",
+            "ticker": "VZ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADBE",
+            "ticker": "ADBE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LLY",
+            "ticker": "LLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "T",
+            "ticker": "T",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADI",
+            "ticker": "ADI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "V",
+            "ticker": "V",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JNJ",
+            "ticker": "JNJ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TJX",
+            "ticker": "TJX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COST",
+            "ticker": "COST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TMUS",
+            "ticker": "TMUS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVX",
+            "ticker": "CVX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABBV",
+            "ticker": "ABBV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BAC",
+            "ticker": "BAC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PG",
+            "ticker": "PG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BKNG",
+            "ticker": "BKNG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TEL",
+            "ticker": "TEL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AAPL",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMZN",
+            "ticker": "AMZN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVGO",
+            "ticker": "AVGO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "META",
+            "ticker": "META",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOGL",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOG",
+            "ticker": "GOOG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JPM",
+            "ticker": "JPM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LLY",
+            "ticker": "LLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "V",
+            "ticker": "V",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NFLX",
+            "ticker": "NFLX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XOM",
+            "ticker": "XOM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ORCL",
+            "ticker": "ORCL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MA",
+            "ticker": "MA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WMT",
+            "ticker": "WMT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COST",
+            "ticker": "COST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JNJ",
+            "ticker": "JNJ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HD",
+            "ticker": "HD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABBV",
+            "ticker": "ABBV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PG",
+            "ticker": "PG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PLTR",
+            "ticker": "PLTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BAC",
+            "ticker": "BAC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FSLR",
+            "ticker": "FSLR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NXT",
+            "ticker": "NXT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ENPH",
+            "ticker": "ENPH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RUN",
+            "ticker": "RUN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HASI",
+            "ticker": "HASI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DQ",
+            "ticker": "DQ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SEDG",
+            "ticker": "SEDG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SHLS",
+            "ticker": "SHLS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CWEN",
+            "ticker": "CWEN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JKS",
+            "ticker": "JKS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ARRY",
+            "ticker": "ARRY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FGSGF",
+            "ticker": "FGSGF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CSIQ",
+            "ticker": "CSIQ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LIN",
+            "ticker": "LIN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NEM",
+            "ticker": "NEM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SHW",
+            "ticker": "SHW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MLM",
+            "ticker": "MLM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VMC",
+            "ticker": "VMC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ECL",
+            "ticker": "ECL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FCX",
+            "ticker": "FCX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "APD",
+            "ticker": "APD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NUE",
+            "ticker": "NUE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DD",
+            "ticker": "DD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CTVA",
+            "ticker": "CTVA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PPG",
+            "ticker": "PPG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IP",
+            "ticker": "IP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SW",
+            "ticker": "SW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PKG",
+            "ticker": "PKG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMCR",
+            "ticker": "AMCR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "STLD",
+            "ticker": "STLD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DOW",
+            "ticker": "DOW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IFF",
+            "ticker": "IFF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LYB",
+            "ticker": "LYB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BALL",
+            "ticker": "BALL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CF",
+            "ticker": "CF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVY",
+            "ticker": "AVY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MOS",
+            "ticker": "MOS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ALB",
+            "ticker": "ALB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "META",
+            "ticker": "META",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOGL",
+            "ticker": "GOOGL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GOOG",
+            "ticker": "GOOG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NFLX",
+            "ticker": "NFLX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WBD",
+            "ticker": "WBD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EA",
+            "ticker": "EA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TTWO",
+            "ticker": "TTWO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TMUS",
+            "ticker": "TMUS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "T",
+            "ticker": "T",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VZ",
+            "ticker": "VZ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DIS",
+            "ticker": "DIS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CMCSA",
+            "ticker": "CMCSA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LYV",
+            "ticker": "LYV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CHTR",
+            "ticker": "CHTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OMC",
+            "ticker": "OMC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TKO",
+            "ticker": "TKO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FOXA",
+            "ticker": "FOXA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NWSA",
+            "ticker": "NWSA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IPG",
+            "ticker": "IPG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MTCH",
+            "ticker": "MTCH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FOX",
+            "ticker": "FOX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PSKY",
+            "ticker": "PSKY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NWS",
+            "ticker": "NWS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TTD",
+            "ticker": "TTD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XOM",
+            "ticker": "XOM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVX",
+            "ticker": "CVX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COP",
+            "ticker": "COP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WMB",
+            "ticker": "WMB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EOG",
+            "ticker": "EOG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MPC",
+            "ticker": "MPC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SLB",
+            "ticker": "SLB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KMI",
+            "ticker": "KMI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PSX",
+            "ticker": "PSX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VLO",
+            "ticker": "VLO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BKR",
+            "ticker": "BKR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OKE",
+            "ticker": "OKE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TRGP",
+            "ticker": "TRGP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "OXY",
+            "ticker": "OXY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EQT",
+            "ticker": "EQT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FANG",
+            "ticker": "FANG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DVN",
+            "ticker": "DVN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXE",
+            "ticker": "EXE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HAL",
+            "ticker": "HAL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CTRA",
+            "ticker": "CTRA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TPL",
+            "ticker": "TPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "APA",
+            "ticker": "APA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JPM",
+            "ticker": "JPM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "V",
+            "ticker": "V",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MA",
+            "ticker": "MA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BAC",
+            "ticker": "BAC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WFC",
+            "ticker": "WFC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GS",
+            "ticker": "GS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MS",
+            "ticker": "MS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "C",
+            "ticker": "C",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AXP",
+            "ticker": "AXP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SPGI",
+            "ticker": "SPGI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BLK",
+            "ticker": "BLK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SCHW",
+            "ticker": "SCHW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PGR",
+            "ticker": "PGR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COF",
+            "ticker": "COF",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BX",
+            "ticker": "BX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CB",
+            "ticker": "CB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ICE",
+            "ticker": "ICE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MMC",
+            "ticker": "MMC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KKR",
+            "ticker": "KKR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CME",
+            "ticker": "CME",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AON",
+            "ticker": "AON",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MCO",
+            "ticker": "MCO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PNC",
+            "ticker": "PNC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AJG",
+            "ticker": "AJG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GE",
+            "ticker": "GE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RTX",
+            "ticker": "RTX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CAT",
+            "ticker": "CAT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UBER",
+            "ticker": "UBER",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GEV",
+            "ticker": "GEV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BA",
+            "ticker": "BA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ETN",
+            "ticker": "ETN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HON",
+            "ticker": "HON",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UNP",
+            "ticker": "UNP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADP",
+            "ticker": "ADP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DE",
+            "ticker": "DE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PH",
+            "ticker": "PH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LMT",
+            "ticker": "LMT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TT",
+            "ticker": "TT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MMM",
+            "ticker": "MMM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GD",
+            "ticker": "GD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WM",
+            "ticker": "WM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NOC",
+            "ticker": "NOC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EMR",
+            "ticker": "EMR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HWM",
+            "ticker": "HWM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TDG",
+            "ticker": "TDG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ITW",
+            "ticker": "ITW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JCI",
+            "ticker": "JCI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CTAS",
+            "ticker": "CTAS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "URI",
+            "ticker": "URI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NVDA",
+            "ticker": "NVDA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AAPL",
+            "ticker": "AAPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVGO",
+            "ticker": "AVGO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ORCL",
+            "ticker": "ORCL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PLTR",
+            "ticker": "PLTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CSCO",
+            "ticker": "CSCO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMD",
+            "ticker": "AMD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IBM",
+            "ticker": "IBM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CRM",
+            "ticker": "CRM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NOW",
+            "ticker": "NOW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INTU",
+            "ticker": "INTU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "QCOM",
+            "ticker": "QCOM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MU",
+            "ticker": "MU",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TXN",
+            "ticker": "TXN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LRCX",
+            "ticker": "LRCX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ACN",
+            "ticker": "ACN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADBE",
+            "ticker": "ADBE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "APH",
+            "ticker": "APH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ANET",
+            "ticker": "ANET",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMAT",
+            "ticker": "AMAT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PANW",
+            "ticker": "PANW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KLAC",
+            "ticker": "KLAC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADI",
+            "ticker": "ADI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CRWD",
+            "ticker": "CRWD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WMT",
+            "ticker": "WMT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "COST",
+            "ticker": "COST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PG",
+            "ticker": "PG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KO",
+            "ticker": "KO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PM",
+            "ticker": "PM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PEP",
+            "ticker": "PEP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MO",
+            "ticker": "MO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MDLZ",
+            "ticker": "MDLZ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CL",
+            "ticker": "CL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MNST",
+            "ticker": "MNST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KMB",
+            "ticker": "KMB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TGT",
+            "ticker": "TGT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KR",
+            "ticker": "KR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SYY",
+            "ticker": "SYY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KDP",
+            "ticker": "KDP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KVUE",
+            "ticker": "KVUE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ADM",
+            "ticker": "ADM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GIS",
+            "ticker": "GIS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HSY",
+            "ticker": "HSY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CHD",
+            "ticker": "CHD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DG",
+            "ticker": "DG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KHC",
+            "ticker": "KHC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "STZ",
+            "ticker": "STZ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "K",
+            "ticker": "K",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EL",
+            "ticker": "EL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PLD",
+            "ticker": "PLD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WELL",
+            "ticker": "WELL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMT",
+            "ticker": "AMT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EQIX",
+            "ticker": "EQIX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SPG",
+            "ticker": "SPG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DLR",
+            "ticker": "DLR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "O",
+            "ticker": "O",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CBRE",
+            "ticker": "CBRE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PSA",
+            "ticker": "PSA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CCI",
+            "ticker": "CCI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CSGP",
+            "ticker": "CSGP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VICI",
+            "ticker": "VICI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXR",
+            "ticker": "EXR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VTR",
+            "ticker": "VTR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "IRM",
+            "ticker": "IRM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AVB",
+            "ticker": "AVB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EQR",
+            "ticker": "EQR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SBAC",
+            "ticker": "SBAC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WY",
+            "ticker": "WY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "INVH",
+            "ticker": "INVH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ESS",
+            "ticker": "ESS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MAA",
+            "ticker": "MAA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "KIM",
+            "ticker": "KIM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ARE",
+            "ticker": "ARE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DOC",
+            "ticker": "DOC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NEE",
+            "ticker": "NEE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SO",
+            "ticker": "SO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CEG",
+            "ticker": "CEG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DUK",
+            "ticker": "DUK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VST",
+            "ticker": "VST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AEP",
+            "ticker": "AEP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SRE",
+            "ticker": "SRE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "D",
+            "ticker": "D",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EXC",
+            "ticker": "EXC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "XEL",
+            "ticker": "XEL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PEG",
+            "ticker": "PEG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ETR",
+            "ticker": "ETR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ED",
+            "ticker": "ED",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "WEC",
+            "ticker": "WEC",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PCG",
+            "ticker": "PCG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NRG",
+            "ticker": "NRG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DTE",
+            "ticker": "DTE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AWK",
+            "ticker": "AWK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AEE",
+            "ticker": "AEE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PPL",
+            "ticker": "PPL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ATO",
+            "ticker": "ATO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CNP",
+            "ticker": "CNP",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ES",
+            "ticker": "ES",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "FE",
+            "ticker": "FE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EIX",
+            "ticker": "EIX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LLY",
+            "ticker": "LLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "JNJ",
+            "ticker": "JNJ",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABBV",
+            "ticker": "ABBV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "UNH",
+            "ticker": "UNH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABT",
+            "ticker": "ABT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MRK",
+            "ticker": "MRK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TMO",
+            "ticker": "TMO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BSX",
+            "ticker": "BSX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMGN",
+            "ticker": "AMGN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GILD",
+            "ticker": "GILD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "PFE",
+            "ticker": "PFE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SYK",
+            "ticker": "SYK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DHR",
+            "ticker": "DHR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MDT",
+            "ticker": "MDT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "VRTX",
+            "ticker": "VRTX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CVS",
+            "ticker": "CVS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BMY",
+            "ticker": "BMY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MCK",
+            "ticker": "MCK",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CI",
+            "ticker": "CI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ELV",
+            "ticker": "ELV",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HCA",
+            "ticker": "HCA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ZTS",
+            "ticker": "ZTS",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "REGN",
+            "ticker": "REGN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BDX",
+            "ticker": "BDX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AMZN",
+            "ticker": "AMZN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TSLA",
+            "ticker": "TSLA",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HD",
+            "ticker": "HD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MCD",
+            "ticker": "MCD",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "BKNG",
+            "ticker": "BKNG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "TJX",
+            "ticker": "TJX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "LOW",
+            "ticker": "LOW",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "SBUX",
+            "ticker": "SBUX",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ORLY",
+            "ticker": "ORLY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DASH",
+            "ticker": "DASH",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "NKE",
+            "ticker": "NKE",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "RCL",
+            "ticker": "RCL",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "AZO",
+            "ticker": "AZO",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "HLT",
+            "ticker": "HLT",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "MAR",
+            "ticker": "MAR",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GM",
+            "ticker": "GM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ABNB",
+            "ticker": "ABNB",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CMG",
+            "ticker": "CMG",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "DHI",
+            "ticker": "DHI",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "ROST",
+            "ticker": "ROST",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "F",
+            "ticker": "F",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "EBAY",
+            "ticker": "EBAY",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "YUM",
+            "ticker": "YUM",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "GRMN",
+            "ticker": "GRMN",
+            "period": "5y",
+            "interval": "1d"
+        },
+        {
+            "name": "CCL",
+            "ticker": "CCL",
+            "period": "5y",
+            "interval": "1d"
+        }
+    ]
+}
