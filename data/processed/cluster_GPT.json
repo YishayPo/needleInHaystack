@@ -1,0 +1,1453 @@
+{
+"0": {
+"description": "Geopolitics in the Middle East (Syria) with some spillover market/tech mentions.",
+"scores": {
+"war in Syria": 9,
+"Syria conflict": 9,
+"investing in streaming services": -1,
+"Reed Hastings interview": -1,
+"US aid to Sudan": 7,
+"buy Workday shares": -1,
+"Syria news": 9,
+"Alexandria Ocasio-Cortez on green bonds": 5,
+"Syria": 8,
+"Lisa Su interview": -1,
+"Copilot sales in Israel": 4
+},
+"coherence": 0.79
+},
+"1": {
+"description": "Upcoming corporate events (earnings) and macro forecasts, plus notable tech product/AI items and controversies.",
+"scores": {
+"corporate earnings forecast": 8,
+"new AWS release date": 6,
+"ServiceNow earnings report": 9,
+"Xiaomi controversy": 6,
+"ChatGPT-5": 6,
+"consumer confidence forecast": 8,
+"ChatGPT-5 price": 6,
+"UnitedHealth earnings report": 9,
+"Mastercard controversy": 6,
+"Alibaba controversy": 6,
+"McDonald's earnings report": 9,
+"iPhone 16 sales in US": 6,
+"OpenAI Sora review": 5,
+"CyberArk news": 7,
+"American Express controversy": 6,
+"euro index forecast": 8,
+"IBM controversy": 6,
+"Cisco controversy": 6,
+"Samsung Electronics news": 7,
+"Merck layoffs": 7,
+"Mastercard earnings report": 9,
+"air quality controversy": 4
+},
+"coherence": 0.73
+},
+"2": {
+"description": "Big-cap tech/health news and pricing with a mix of privacy/controversy items.",
+"scores": {
+"Satya Nadella interview": -1,
+"Payoneer news": 7,
+"mindfulness controversy": 3,
+"UnitedHealth news": 7,
+"data privacy controversy": 6,
+"Snapchat controversy": 6,
+"Berkshire Hathaway earnings report": 9,
+"OpenAI Sora price": 6
+},
+"coherence": 0.70
+},
+"3": {
+"description": "Celebrity/tech personalities and speculative crypto interest.",
+"scores": {
+"Oprah Winfrey": -1,
+"TSMC layoffs": 6,
+"Jeff Bezos interview": -1,
+"investing in crypto": 6,
+"Elon Musk tweet": -1,
+"Jeff Bezos": -1,
+"crypto": 6
+},
+"coherence": 0.50
+},
+"4": {
+"description": "Blue-chip executive/companies with focus on prices and leaders.",
+"scores": {
+"Workday stock price": 8,
+"Berkshire Hathaway stock price": 8,
+"Lisa Su": -1,
+"Tim Cook": -1,
+"Intel": 6,
+"Morgan Stanley": 6
+},
+"coherence": 0.73
+},
+"5": {
+"description": "Sudan conflict and related market/security mentions.",
+"scores": {
+"Sudan conflict": 9,
+"Check Point Software earnings report": 6,
+"gender equality controversy": -1,
+"Sudan news": 9,
+"Zendaya new album": -1,
+"Sudan": 8,
+"war in Sudan": 9,
+"buy Intel shares": -1,
+"Visa response to Middle East": 6
+},
+"coherence": 0.85
+},
+"6": {
+"description": "Middle East security context with some consumer/tech sales and executive ESG sentiments.",
+"scores": {
+"buy Xiaomi shares": 6,
+"AirPods Pro sales in Gaza": 6,
+"Sundar Pichai on eco-friendly products": 5,
+"Hezbollah": 6,
+"CVS Health layoffs": 7,
+"Nancy Pelosi on eco-friendly products": 4,
+"Pinterest response to Pakistan": 6
+},
+"coherence": 0.63
+},
+"7": {
+"description": "Corporate actions (layoffs/responses) tied to Middle East hot spots and financial names.",
+"scores": {
+"Unity layoffs": 7,
+"Fiverr response to Jerusalem": 6,
+"Yemen": 6,
+"Yemen news": 8,
+"Sheryl Sandberg on air quality": 3,
+"buy BlackRock shares": 6,
+"Mansour Abbas on sustainable finance": 3,
+"BlackRock layoffs": 7,
+"MacBook Pro M4 sales in China": 5
+},
+"coherence": 0.64
+},
+"8": {
+"description": "Politics/social personalities intertwined with corporate responses and gaming sales in Russia.",
+"scores": {
+"Andrew Tate": -1,
+"Isaac Herzog tweet": -1,
+"Amir Ohana": -1,
+"Ayman Odeh on stakeholder capitalism": 4,
+"Zoom response to Middle East": 6,
+"Kevin McCarthy interview": -1,
+"Kevin McCarthy": -1,
+"Playstation 5 Pro sales in Russia": 6
+},
+"coherence": 0.55
+},
+"9": {
+"description": "General market/tech/consumer mix without strong unifying theme.",
+"scores": {
+"Pinterest": 5,
+"stock market": 7,
+"Azure": 6,
+"Drake": -1,
+"mortgage rates": 7
+},
+"coherence": 0.64
+},
+"10": {
+"description": "Israel/Palestine conflict and regional news alongside health/tech market items.",
+"scores": {
+"Palestine": 8,
+"Gaza": 8,
+"war in Palestine": 9,
+"AirPods Pro sales in Palestine": 6,
+"Pfizer layoffs": 7,
+"Gaza news": 9,
+"Mansour Abbas on me too movement": -1,
+"Naftali Bennett interview": -1,
+"AI advancements trends": 6,
+"Jerusalem conflict": 8,
+"Itamar Ben-Gvir on biodiversity conservation": -1,
+"Roche earnings report": 9,
+"Apple Vision Pro vs competitor": 6,
+"GSK layoffs": 7
+},
+"coherence": 0.82
+},
+"11": {
+"description": "Russia–Ukraine–NATO war and markets with pro-Ukraine signals.",
+"scores": {
+"RSX": 7,
+"war in NATO": 7,
+"war in Ukraine": 9,
+"war in Russia": 8,
+"Satya Nadella": -1,
+"Russia news": 9,
+"NATO conflict": 8,
+"ERUS": 7,
+"Peace talks": 6,
+"Russia conflict": 8,
+"Nice Ltd. response to Saudi Arabia": 4,
+"NATO news": 8,
+"Support Ukraine": 6,
+"Ukraine conflict": 9,
+"Ukraine news": 9,
+"Ayman Odeh on social justice": -1,
+"investing in vegan": -1,
+"NATO": 7,
+"Russia": 7,
+"buy Unity shares": 5,
+"Ukraine": 8
+},
+"coherence": 0.80
+},
+"12": {
+"description": "Oil/geopolitics in Saudi Arabia/Iraq with regional conflict focus.",
+"scores": {
+"war in Saudi Arabia": 8,
+"US conflict": 5,
+"impact of oil prices": 8,
+"Middle East": 7,
+"Iraq conflict": 8,
+"Saudi Arabia conflict": 8
+},
+"coherence": 0.90
+},
+"13": {
+"description": "Macro indicators (CPI, savings) and Google Cloud reviews with governance mentions.",
+"scores": {
+"Google Cloud review": 6,
+"CPI report forecast": 8,
+"yoga trends": -1,
+"savings rate forecast": 8,
+"Jerome Powell": 6,
+"Johnson & Johnson vs Johnson & Johnson": -1,
+"impact of corporate earnings": 7
+},
+"coherence": 0.73
+},
+"14": {
+"description": "Tech/semis, cybersecurity and clean-energy with culture-of-work topics.",
+"scores": {
+"cybersecurity": 7,
+"Sydney Sweeney": -1,
+"remote work culture": 6,
+"inclusion initiatives": 5,
+"Meta stock price": 8,
+"Nvidia layoffs": 7,
+"climate resilience": 6,
+"TSMC": 6,
+"clean energy transition": 7,
+"Reddit controversy": 5,
+"Ozempic": 5,
+"Meta": 7,
+"Cloudflare": 7,
+"FRDM": 6,
+"NVO": 6
+},
+"coherence": 0.73
+},
+"15": {
+"description": "Entertainment (Barbie/Oppenheimer) mixed with Ukraine-response and AI sales.",
+"scores": {
+"Oppenheimer movie ratings": 6,
+"Unity response to Ukraine": 6,
+"Oppenheimer movie": 6,
+"MercadoLibre earnings report": 9,
+"Barbie movie ratings": 6,
+"Margot Robbie": -1,
+"Barbie movie": 6,
+"Yuli Edelstein on impact investing": 3,
+"Kevin McCarthy tweet": -1,
+"OpenAI Sora sales in Middle East": 6
+},
+"coherence": 0.64
+},
+"16": {
+"description": "Tech company pricing/controversy with some buy/sell interest.",
+"scores": {
+"Samsung Electronics controversy": 6,
+"buy Twitter shares": 6,
+"Sundar Pichai interview": -1,
+"Netflix stock price": 8,
+"Twitter stock price": 8
+},
+"coherence": 0.90
+},
+"17": {
+"description": "Macro impacts (rates, labor, savings) blended with US foreign aid mentions.",
+"scores": {
+"impact of labor market": 8,
+"impact of industrial production": 7,
+"impact of interest rates": 9,
+"impact of trade deficit": 8,
+"impact of income inequality": 6,
+"US aid to NATO": 6,
+"US aid to US": 4,
+"impact of consumer spending": 8,
+"US aid to Russia": 6,
+"investing in depression": -1,
+"impact of global trade": 8,
+"US aid to North Korea": 6,
+"impact of savings rate": 8,
+"CVS Health response to Ukraine": 5,
+"US aid to China": 6
+},
+"coherence": 0.80
+},
+"18": {
+"description": "Payments/ride-hailing/megatech and lifestyle tags.",
+"scores": {
+"Mastercard": 7,
+"superfoods": -1,
+"Lyft": 6,
+"yoga": -1,
+"organic food": -1,
+"Uber": 6,
+"Home Depot vs Home Depot": -1,
+"TSLA": 7,
+"Tesla": 7,
+"Microsoft": 7,
+"China": 6,
+"SAP": 6
+},
+"coherence": 0.77
+},
+"19": {
+"description": "US policy/ESG mentions with Taiwan risk and corporate layoffs.",
+"scores": {
+"Sheryl Sandberg on inclusion initiatives": 4,
+"Joe Biden on eco-friendly products": 4,
+"Taiwan news": 8,
+"impact of Inflation Reduction Act": 7,
+"Taiwan conflict": 8,
+"Walmart layoffs": 7,
+"Workday controversy": 6,
+"Inflation Reduction Act forecast": 7,
+"Wix layoffs": 7,
+"Inflation Reduction Act": 7,
+"Oracle layoffs": 7,
+"Broadcom response to Ethiopia": 4
+},
+"coherence": 0.73
+},
+"20": {
+"description": "Company-specific news across tech/commerce and mobility.",
+"scores": {
+"Visa news": 8,
+"Netflix news": 8,
+"AMD news": 8,
+"Dell news": 8,
+"Uber news": 8,
+"Mastercard news": 8,
+"Fiverr news": 7,
+"Iraq news": 7,
+"Cisco news": 8,
+"Shopify news": 8,
+"Lyft news": 8
+},
+"coherence": 0.90
+},
+"21": {
+"description": "Nvidia/semis focus with earnings, stock price, and leadership mentions.",
+"scores": {
+"Nvidia news": 9,
+"Bristol-Myers Squibb response to Nova music festival massacre": 3,
+"Jensen Huang": 7,
+"Nvidia earnings report": 9,
+"buy Nvidia shares": 7,
+"Mitch McConnell on corporate governance": -1,
+"Nvidia stock price": 9,
+"Micron stock price": 8
+},
+"coherence": 0.88
+},
+"22": {
+"description": "Consumer tech releases and wearables with labor/culture angles.",
+"scores": {
+"Tim Cook on gender equality": -1,
+"Workday layoffs": 7,
+"wearable fitness trends": 7,
+"Grammys": -1,
+"new Microsoft Surface release date": 6,
+"Azure sales in Iraq": 5
+},
+"coherence": 0.64
+},
+"23": {
+"description": "Earnings/price/central bank and macro factors with controversies.",
+"scores": {
+"Etsy controversy": 6,
+"Jerome Powell tweet": -1,
+"Visa controversy": 6,
+"Block earnings report": 9,
+"Spotify earnings report": 9,
+"Merck earnings report": 9,
+"Jerome Powell interview": -1,
+"TSMC controversy": 6,
+"impact of dollar index": 8,
+"Moderna layoffs": 7,
+"Qualcomm earnings report": 9,
+"fair trade stocks": 6,
+"Samsung Electronics stock price": 8,
+"wage growth forecast": 8,
+"Elbit Systems news": 7,
+"Airbnb controversy": 6,
+"ARM earnings report": 9,
+"AirPods Pro sales in US": 6,
+"central banks forecast": 8,
+"UnitedHealth vs UnitedHealth": -1,
+"Visa earnings report": 9
+},
+"coherence": 0.86
+},
+"24": {
+"description": "Consumer & tech market news and prices.",
+"scores": {
+"SolarEdge news": 8,
+"IKEA stock price": 7,
+"Sea Limited news": 8,
+"Xiaomi news": 9,
+"buy Nike shares": 6
+},
+"coherence": 0.76
+},
+"25": {
+"description": "Afghanistan conflict and related activism/energy comments.",
+"scores": {
+"Afghanistan news": 9,
+"Roomba sales in Gaza": 5,
+"Afghanistan conflict": 9,
+"Yuli Edelstein on environmental activism": 3,
+"Yair Lapid on biodiversity conservation": 3,
+"war in Afghanistan": 9,
+"Afghanistan": 8,
+"Nancy Pelosi on renewable energy": 3
+},
+"coherence": 0.86
+},
+"26": {
+"description": "Tech releases/controversies and ESG investing theme.",
+"scores": {
+"Netflix response to US": 5,
+"PepsiCo earnings report": 9,
+"carbon footprint stocks": 6,
+"Intel controversy": 6,
+"Shopify controversy": 6,
+"new Azure release date": 6
+},
+"coherence": 0.72
+},
+"27": {
+"description": "Big-tech leadership/culture topics and US/Red Sea aid mentions.",
+"scores": {
+"Android 15 vs competitor": -1,
+"Merck response to Peace talks": 4,
+"US aid to Red Sea": 6,
+"Sundar Pichai on remote work culture": 5,
+"Benny Gantz": -1
+},
+"coherence": 0.58
+},
+"28": {
+"description": "Windows/AWS/Meta product pricing/news with layoffs and security comparisons.",
+"scores": {
+"Windows 11 review": 6,
+"AWS price": 6,
+"Meta news": 8,
+"energy prices forecast": 8,
+"Windows 11 price": 7,
+"Atlassian layoffs": 7,
+"CyberArk vs CyberArk": -1
+},
+"coherence": 0.74
+},
+"29": {
+"description": "Social/political controversy (BLM, tariffs) mixed with ESG and consumer sales.",
+"scores": {
+"deforestation controversy": 6,
+"Will Smith new album": -1,
+"workplace diversity stocks": 6,
+"Naftali Bennett on quiet quitting": 3,
+"Sonos Speaker sales in Sinai Peninsula": 5,
+"Sheryl Sandberg on Black Lives Matter": 5,
+"tariffs": 7
+},
+"coherence": 0.64
+},
+"30": {
+"description": "Corporate layoffs/responses and buy signals with consumer/auto tech.",
+"scores": {
+"Warren Buffett tweet": -1,
+"buy Starbucks shares": 6,
+"Visa response to Saudi Arabia": 5,
+"Fiverr response to Yemen": 6,
+"Spotify layoffs": 7,
+"buy IBM shares": 6,
+"Cybertruck review": 6,
+"Merck response to Afghanistan": 5,
+"Broadcom layoffs": 7
+},
+"coherence": 0.67
+},
+"31": {
+"description": "Upcoming smartphone cycle (iPhone 16/Pixel 9) with politics/CSR mentions.",
+"scores": {
+"Google Pixel 9 price": 7,
+"Kamala Harris interview": -1,
+"lgbtq rights stocks": 5,
+"Sundar Pichai on corporate social responsibility": 5,
+"new Google Pixel 9 release date": 7,
+"iPhone 16": 7,
+"iPhone 16 price": 7,
+"new iPhone 16 release date": 7,
+"iPhone 16 sales in India": 6,
+"Nice Ltd. response to IDF": 4,
+"Google Pixel 9": 7,
+"Nancy Pelosi on gender equality": -1,
+"Baidu response to Security fence": 4,
+"iPhone 16 review": 6,
+"Google Pixel 9 review": 6
+},
+"coherence": 0.74
+},
+"32": {
+"description": "Consumer brands/tech with lifestyle and EM geography mentions.",
+"scores": {
+"India": 6,
+"Starbucks": 6,
+"Sonos Speaker": 5,
+"Alibaba": 7,
+"Dyson Vacuum": 5,
+"Netflix": 7,
+"universal basic income": 5,
+"HP": 6,
+"intermittent fasting": -1,
+"Zara": 6,
+"vegetarian": -1,
+"Galaxy Buds price": 7,
+"Nike": 6,
+"meditation": -1,
+"Xiaomi vs Xiaomi": -1,
+"CVS Health": 6,
+"Citigroup": 6,
+"fair trade": 5,
+"West Bank": 6,
+"Ryan Reynolds": -1
+},
+"coherence": 0.69
+},
+"33": {
+"description": "Red Sea geopolitical risk with layoffs and China sales/finance angles.",
+"scores": {
+"Red Sea news": 9,
+"Lululemon controversy": 6,
+"Cloudflare layoffs": 7,
+"Red Sea conflict": 9,
+"iPhone Pro Max sales in China": 6,
+"buy Goldman Sachs shares": 6,
+"Amgen response to Iran": 5
+},
+"coherence": 0.83
+},
+"34": {
+"description": "Israel/Syria/ESG investing and finance/earnings with political tweets.",
+"scores": {
+"Galaxy Buds sales in Syria": 6,
+"MacBook Pro M4 sales in Israel": 6,
+"ESG investing stocks": 6,
+"Ted Cruz tweet": -1,
+"Nancy Pelosi interview": -1,
+"Nancy Pelosi tweet": -1,
+"economic stimulus": 7,
+"Fiverr stock price": 8,
+"buy PayPal shares": 6,
+"Ted Cruz": -1,
+"investing in Wegovy": 5,
+"Sundar Pichai on corporate governance": 5,
+"Citigroup earnings report": 9
+},
+"coherence": 0.76
+},
+"35": {
+"description": "Rates/CPI/fed meeting and fintech/payments names.",
+"scores": {
+"interest rates forecast": 9,
+"web3": 5,
+"Fiverr": 6,
+"buy UnitedHealth shares": 6,
+"interest rates": 8,
+"mortgage rates forecast": 8,
+"Payoneer": 6,
+"CPI report": 9,
+"fed meeting": 8
+},
+"coherence": 0.86
+},
+"36": {
+"description": "Healthcare/defense and Israel-linked pricing/news.",
+"scores": {
+"CVS Health news": 7,
+"Johnson & Johnson layoffs": 7,
+"Johnson & Johnson earnings report": 9,
+"Yuli Edelstein": -1,
+"ethereum trends": 5,
+"social justice stocks": 5,
+"Elbit Systems stock price": 8,
+"Mobileye news": 7
+},
+"coherence": 0.79
+},
+"37": {
+"description": "Metaverse/NFT/5G and consumer superfood trends.",
+"scores": {
+"Bernie Sanders on gig economy": -1,
+"metaverse": 7,
+"investing in metaverse": 7,
+"metaverse trends": 7,
+"superfoods trends": 6,
+"Ring Doorbell sales in Jerusalem": 5,
+"investing in NFTs": 6,
+"5G technology trends": 7
+},
+"coherence": 0.74
+},
+"38": {
+"description": "Broad set of corporate earnings across tech/retail/banks plus a pop album tag.",
+"scores": {
+"Ring Doorbell sales in Red Sea": 5,
+"Morgan Stanley earnings report": 9,
+"Pinterest earnings report": 9,
+"Home Depot earnings report": 9,
+"Etsy earnings report": 9,
+"HP earnings report": 9,
+"Wells Fargo earnings report": 9,
+"Dell earnings report": 9,
+"AMD earnings report": 9,
+"Bank of America earnings report": 9,
+"Lizzo new album": -1,
+"Intel earnings report": 9,
+"BlackRock earnings report": 9
+},
+"coherence": 0.98
+},
+"39": {
+"description": "Corporate layoffs and device comparisons with political/social tweets.",
+"scores": {
+"Apple response to Red Sea": 6,
+"Tesla layoffs": 7,
+"Taylor Swift new album": -1,
+"Kim Kardashian new album": -1,
+"Yair Lapid on social entrepreneurship": 3,
+"Sanofi layoffs": 7,
+"Sheryl Sandberg tweet": -1,
+"Microsoft Surface vs competitor": -1
+},
+"coherence": 0.72
+},
+"40": {
+"description": "Apple Vision Pro pricing/reviews and pharma earnings with policy mentions.",
+"scores": {
+"GSK response to Ceasefire": 4,
+"Eli Lilly earnings report": 9,
+"Apple Vision Pro price": 7,
+"Nest Thermostat sales in Yemen": 5,
+"Kamala Harris on deforestation": -1,
+"Marco Rubio on body positivity": -1,
+"buy Morgan Stanley shares": 6,
+"Apple Vision Pro review": 7,
+"Apple Vision Pro": 7,
+"new Apple Vision Pro release date": 7,
+"Mastercard layoffs": 7
+},
+"coherence": 0.80
+},
+"41": {
+"description": "Israeli politics and conflict-adjacent corporate responses with Pride/social tags.",
+"scores": {
+"pride month": 5,
+"Yair Lapid": -1,
+"Playstation 5 Pro sales in Ukraine": 6,
+"Kamala Harris tweet": -1,
+"Naftali Bennett": -1,
+"Mansour Abbas": -1,
+"CVS Health response to Russia": 5
+},
+"coherence": 0.63
+},
+"42": {
+"description": "Healthcare earnings/buys and political responses tied to Middle East.",
+"scores": {
+"AstraZeneca earnings report": 9,
+"buy H&M shares": 6,
+"Merck response to India": 5,
+"Kamala Harris on Black Lives Matter": -1,
+"buy HP shares": 6,
+"Bristol-Myers Squibb response to Red Sea": 5
+},
+"coherence": 0.77
+},
+"43": {
+"description": "Corporate layoffs and comparisons with BDS-related responses.",
+"scores": {
+"HP layoffs": 7,
+"World Cup": -1,
+"PepsiCo vs PepsiCo": -1,
+"AbbVie layoffs": 7,
+"Amgen response to BDS movement": 5
+},
+"coherence": 0.80
+},
+"44": {
+"description": "Cybersecurity (CrowdStrike) with ESG/political finance reactions.",
+"scores": {
+"BlackRock controversy": 6,
+"CrowdStrike": 8,
+"CrowdStrike controversy": 6,
+"Joe Biden on sustainable finance": 4,
+"CrowdStrike news": 9,
+"buy CrowdStrike shares": 7,
+"Gideon Sa'ar on fast fashion": -1,
+"Best Buy response to BDS movement": 5,
+"buy CVS Health shares": 6,
+"Naftali Bennett on biodiversity conservation": -1
+},
+"coherence": 0.83
+},
+"45": {
+"description": "US banks/retail/tech news with social media and ESG investing mentions.",
+"scores": {
+"Walgreens news": 8,
+"body positivity": -1,
+"Kylie Jenner": -1,
+"Wells Fargo": 7,
+"Megan Thee Stallion": -1,
+"ICLN": 6,
+"PayPal": 7,
+"5G technology": 7,
+"ESG investing": 6,
+"Twitter": 6,
+"Home Depot": 7,
+"Lowe's": 7,
+"Bank of America": 7,
+"GoPro price": 7,
+"Google news": 8
+},
+"coherence": 0.78
+},
+"46": {
+"description": "Fintech/regulation and healthcare genetics with plant-based food investing.",
+"scores": {
+"financial regulation": 7,
+"Amgen": 6,
+"genetic testing": 6,
+"fintech": 7,
+"plant-based food": 5
+},
+"coherence": 0.78
+},
+"47": {
+"description": "US large-cap price focus and leadership name.",
+"scores": {
+"American Express stock price": 8,
+"IBM stock price": 8,
+"Merck": 6,
+"Roche stock price": 8,
+"Mark Zuckerberg": -1,
+"Uber stock price": 8
+},
+"coherence": 0.92
+},
+"48": {
+"description": "Tech/celebrity albums with semis/mobile sales and climate comments.",
+"scores": {
+"Roomba sales in Ethiopia": 5,
+"AMD layoffs": 7,
+"Jake Paul new album": -1,
+"Sheryl Sandberg on social justice": 4,
+"buy Palantir shares": 6,
+"Elon Musk on climate change": 5,
+"Samsung Galaxy S25 sales in Israel": 6,
+"Jake Paul": -1
+},
+"coherence": 0.68
+},
+"49": {
+"description": "Corporate responses to Middle East issues and wage/album politics.",
+"scores": {
+"Dua Lipa new album": -1,
+"Marco Rubio interview": -1,
+"impact of wage growth": 8,
+"Bristol-Myers Squibb response to Yemen": 5,
+"Fiverr response to Russia": 6,
+"Starbucks layoffs": 7,
+"Merck response to Gaza": 5,
+"Mitch McConnell on green bonds": -1
+},
+"coherence": 0.77
+},
+"50": {
+"description": "Microsoft Copilot/Samsung device cycle with macro rate/bond impacts and ESG.",
+"scores": {
+"Copilot sales in Gaza": 6,
+"Best Buy response to Ethiopia": 5,
+"Samsung Galaxy S25": 7,
+"Chuck Schumer interview": -1,
+"impact of mortgage rates": 8,
+"Copilot review": 6,
+"Marco Rubio on youth climate movement": -1,
+"smart home trends": 7,
+"impact of bond yields": 8,
+"impact investing stocks": 6,
+"Tesla Model Y sales in Palestine": 6
+},
+"coherence": 0.78
+},
+"51": {
+"description": "Cybersecurity/robotics/Copilot and payments controversy with buy intent.",
+"scores": {
+"anxiety trends": -1,
+"Tesla controversy": 6,
+"Block controversy": 6,
+"robotics trends": 7,
+"Copilot price": 6,
+"cybersecurity trends": 7,
+"buy Visa shares": 6
+},
+"coherence": 0.77
+},
+"52": {
+"description": "Iran conflict/news with corporate/government responses and layoffs.",
+"scores": {
+"war in Iran": 9,
+"Sydney Sweeney new album": -1,
+"Visa response to Iran": 6,
+"Sheryl Sandberg on sustainable finance": 4,
+"Apple response to Sinai Peninsula": 5,
+"Netflix response to Gaza": 5,
+"Ted Cruz interview": -1,
+"US aid to Iran": 7,
+"Iran news": 9,
+"circular economy stocks": 6,
+"Iran conflict": 9,
+"Iran": 8,
+"Apple response to Israel": 5,
+"Best Buy response to Iran": 5,
+"Lululemon layoffs": 7,
+"Goldman Sachs response to Iron Dome": 5,
+"climate resilience controversy": 5,
+"Teva Pharmaceutical news": 8,
+"Apple response to NATO": 5
+},
+"coherence": 0.84
+},
+"53": {
+"description": "India/semis and Berkshire/Warren Buffett finance focus.",
+"scores": {
+"India news": 8,
+"Security fence": 5,
+"Micron": 7,
+"Warren Buffett": 7,
+"Berkshire Hathaway": 7
+},
+"coherence": 0.82
+},
+"54": {
+"description": "AstraZeneca/Zoom and US political/social themes with retail/home improvement buys.",
+"scores": {
+"AstraZeneca news": 8,
+"Zoom response to Saudi Arabia": 5,
+"Nitzan Horowitz": -1,
+"AstraZeneca controversy": 6,
+"PewDiePie new album": -1,
+"Grammys ratings": -1,
+"Bernie Sanders on gender equality": -1,
+"buy Home Depot shares": 6,
+"Visa response to Iron Dome": 5,
+"youth climate movement": 5
+},
+"coherence": 0.78
+},
+"55": {
+"description": "US indices/sectors with Nike/Costco pricing and circular economy tag.",
+"scores": {
+"Nike stock price": 8,
+"trade deficit": 7,
+"Ryan Reynolds new album": -1,
+"S&P 500": 8,
+"Costco stock price": 8,
+"CircularEconomy": 6
+},
+"coherence": 0.88
+},
+"56": {
+"description": "Earnings and controversies with trade/macro forecasts.",
+"scores": {
+"Goldman Sachs earnings report": 9,
+"Pinterest controversy": 6,
+"trade deficit forecast": 8,
+"eBay controversy": 6,
+"Johnson & Johnson controversy": 6
+},
+"coherence": 0.86
+},
+"57": {
+"description": "Remote work investing and corporate responses with Costco buy.",
+"scores": {
+"Shopify response to Yemen": 5,
+"investing in remote work": 7,
+"Elon Musk on inclusion initiatives": 4,
+"buy Costco shares": 6,
+"home workout trends": 7
+},
+"coherence": 0.78
+},
+"58": {
+"description": "Travel/consumer device sales and pharma controversies with buy signals.",
+"scores": {
+"Roomba sales in China": 6,
+"Airbnb stock price": 8,
+"Ring Doorbell sales in West Bank": 5,
+"Pfizer controversy": 6,
+"buy Airbnb shares": 6,
+"Playstation 5 Pro sales in Iraq": 6,
+"buy Moderna shares": 6
+},
+"coherence": 0.80
+},
+"59": {
+"description": "Microsoft Surface reviews, eBay, GSK stock, and biotech theme.",
+"scores": {
+"stakeholder capitalism": 4,
+"eBay": 6,
+"Microsoft Surface review": 6,
+"GSK stock price": 8,
+"Dow Jones 30": 8,
+"US_Biotech": 7
+},
+"coherence": 0.76
+},
+"60": {
+"description": "India/Pakistan conflicts and company responses with macro/earnings.",
+"scores": {
+"India conflict": 8,
+"Met Gala ratings": -1,
+"Peloton sales in US": 6,
+"CrowdStrike layoffs": 7,
+"US aid to Pakistan": 7,
+"Pakistan conflict": 8,
+"Ceasefire": 6,
+"Unity response to US": 5,
+"Lyft earnings report": 9,
+"war in India": 8,
+"GSK response to Jerusalem": 5,
+"UnitedHealth layoffs": 7,
+"war in Pakistan": 8,
+"Ayman Odeh on gender equality": -1,
+"Pakistan news": 8
+},
+"coherence": 0.84
+},
+"61": {
+"description": "Apple hardware cycle releases plus housing and celebrity music.",
+"scores": {
+"new AirPods Pro release date": 7,
+"Mary Barra": -1,
+"new Apple Watch release date": 7,
+"Bad Bunny": -1,
+"housing market": 7,
+"new iPhone Pro Max release date": 7
+},
+"coherence": 0.86
+},
+"62": {
+"description": "Wide layoffs across tech/fintech with CSR politics and new Roomba release.",
+"scores": {
+"Adobe layoffs": 7,
+"Apple layoffs": 7,
+"Google layoffs": 7,
+"Amgen layoffs": 7,
+"Uber layoffs": 7,
+"ServiceNow layoffs": 7,
+"Pinterest layoffs": 7,
+"Alexandria Ocasio-Cortez on corporate social responsibility": -1,
+"new Roomba release date": 6,
+"American Express layoffs": 7,
+"PayPal layoffs": 7,
+"Elbit Systems layoffs": 7
+},
+"coherence": 0.94
+},
+"63": {
+"description": "Gold/commodities and water/clean ETFs with Israeli and Google price tags.",
+"scores": {
+"gold prices": 8,
+"Elon Musk": -1,
+"electric vehicle": 6,
+"XLP": 7,
+"Clean Water": 6,
+"Wix": 6,
+"EIS": 7,
+"Google stock price": 8,
+"water scarcity": 6
+},
+"coherence": 0.79
+},
+"64": {
+"description": "Earnings and EM/Android review themes.",
+"scores": {
+"Cisco earnings report": 9,
+"emerging markets forecast": 8,
+"Android 15 review": 6
+},
+"coherence": 0.89
+},
+"65": {
+"description": "Clean/alt protein investing with celebrity albums and Atlassian buy.",
+"scores": {
+"buy Atlassian shares": 6,
+"Kanye West new album": -1,
+"clean energy transition stocks": 7,
+"investing in lab grown meat": 6,
+"Logan Paul new album": -1,
+"Margot Robbie new album": -1
+},
+"coherence": 0.82
+},
+"66": {
+"description": "Virtual reality/consumer trends with Middle East corporate responses and finance buys.",
+"scores": {
+"virtual reality trends": 7,
+"new Tesla Model Y release date": 7,
+"Merck response to Ethiopia": 5,
+"Zoom response to October 7 attacks": 5,
+"buy Charles Schwab shares": 6,
+"investing in virtual reality": 7,
+"The Weeknd new album": -1,
+"Sanofi controversy": 6,
+"AirPods Pro sales in Syria": 6,
+"sustainable fashion trends": 6,
+"Goldman Sachs response to Jerusalem": 5
+},
+"coherence": 0.79
+},
+"67": {
+"description": "China/Russia responses and macro/labor plus celebrity music.",
+"scores": {
+"Bernie Sanders tweet": -1,
+"gig economy controversy": 6,
+"Cybertruck sales in US": 6,
+"Joe Biden interview": -1,
+"Alibaba earnings report": 9,
+"CVS Health response to Yemen": 5,
+"Best Buy response to Israel": 5,
+"Adele": -1,
+"Adele new album": -1
+},
+"coherence": 0.78
+},
+"68": {
+"description": "VR headset pricing/reviews with retail controversies and layoffs.",
+"scores": {
+"Meta Quest 3 review": 6,
+"Meta Quest 3 price": 7,
+"Zara controversy": 6,
+"Etsy layoffs": 7,
+"Meta Quest 3 sales in Syria": 6,
+"Starbucks controversy": 6
+},
+"coherence": 0.82
+},
+"69": {
+"description": "Microsoft Copilot and Peloton sales with ESG/web3 investing and Middle East finance.",
+"scores": {
+"Copilot sales in China": 6,
+"Peloton sales in Yemen": 5,
+"Mansour Abbas on ethical sourcing": 3,
+"Sheryl Sandberg on eco-friendly products": 4,
+"investing in web3": 6
+},
+"coherence": 0.73
+},
+"70": {
+"description": "Oil/commodity prices and real estate with iPhone Pro Max pricing.",
+"scores": {
+"iPhone Pro Max price": 7,
+"oil prices forecast": 8,
+"commodity prices": 8,
+"iPhone Pro Max": 6,
+"real estate market": 7,
+"oil prices": 8
+},
+"coherence": 0.87
+},
+"71": {
+"description": "US politics/tweets with ESG/Israel tech-sales mentions.",
+"scores": {
+"lgbtq rights": 5,
+"Alexandria Ocasio-Cortez": -1,
+"Donald Trump tweet": -1,
+"Marco Rubio tweet": -1,
+"Bernie Sanders interview": -1,
+"Joe Biden tweet": -1,
+"Donald Trump": -1,
+"Goldman Sachs response to Red Sea": 5,
+"Mary Barra interview": -1,
+"stakeholder capitalism controversy": 5,
+"Reed Hastings on work-life balance": -1,
+"US news": 7,
+"Alexandria Ocasio-Cortez tweet": -1,
+"MacBook Pro M4 sales in Sinai Peninsula": 6,
+"Joe Biden on climate change": 5,
+"Joe Biden": -1,
+"US": 6
+},
+"coherence": 0.72
+},
+"72": {
+"description": "General consumer/e-commerce and VR theme.",
+"scores": {
+"Amazon": 7,
+"virtual reality": 7,
+"Etsy": 6,
+"Kroger": 6
+},
+"coherence": 0.88
+},
+"73": {
+"description": "US–Israel aid/conflict and regional news (Jerusalem/Sinai).",
+"scores": {
+"US aid to Israel": 8,
+"Charles Schwab layoffs": 7,
+"Middle East conflict": 9,
+"US aid to Middle East": 8,
+"Jerusalem news": 9,
+"Intifada": 8,
+"Sinai Peninsula": 7,
+"Benjamin Netanyahu": -1
+},
+"coherence": 0.90
+},
+"74": {
+"description": "Tech news (Salesforce/McDonald's/Micron) with FX/price mentions.",
+"scores": {
+"Azure price": 7,
+"foreign exchange forecast": 8,
+"Micron news": 8,
+"McDonald's news": 8,
+"Salesforce news": 8,
+"Block stock price": 8
+},
+"coherence": 0.90
+},
+"75": {
+"description": "Israel/Palestine/Gaza/West Bank conflict and aid with defense terms.",
+"scores": {
+"Iron Dome": 7,
+"Golan Heights conflict": 9,
+"US aid to Palestine": 8,
+"war in Golan Heights": 9,
+"buy Oracle shares": 6,
+"Sinai Peninsula news": 8,
+"Israel conflict": 9,
+"Alexandria Ocasio-Cortez on data privacy": 4,
+"Palestine conflict": 9,
+"CVS Health response to IDF": 5,
+"buy Dell shares": 6,
+"Gaza conflict": 9,
+"war in Sinai Peninsula": 9,
+"US aid to West Bank": 8,
+"Hamas": 8,
+"war in Israel": 9,
+"Palestine news": 9,
+"West Bank conflict": 9
+},
+"coherence": 0.92
+},
+"76": {
+"description": "Consumer brands and enterprise software with comparisons.",
+"scores": {
+"Unity vs Unity": -1,
+"Uniqlo": 6,
+"Lululemon": 6,
+"Salesforce": 7,
+"Spotify": 7,
+"Garmin Watch": 6,
+"Costco vs Costco": -1
+},
+"coherence": 0.88
+},
+"77": {
+"description": "Smart home/wearables prices and reviews.",
+"scores": {
+"Fitbit price": 7,
+"Roomba": 6,
+"Roomba price": 7,
+"Roomba review": 6,
+"Ring Doorbell review": 6,
+"Fitbit review": 6,
+"Fitbit": 6,
+"Nest Thermostat review": 6
+},
+"coherence": 0.86
+},
+"78": {
+"description": "Enterprise software/cloud and data security themes.",
+"scores": {
+"Atlassian": 7,
+"robotics": 5,
+"Texas Instruments vs Texas Instruments": -1,
+"ServiceNow": 7,
+"data breach": 9,
+"Google Cloud": 7,
+"data privacy": 9,
+"ASML": 6
+},
+"coherence": 0.83
+},
+"79": {
+"description": "Investing themes in supply chain, health, and AI advancements.",
+"scores": {
+"investing in supply chain": 7,
+"investing in gut health": 6,
+"impact of emerging markets": 7,
+"investing in mental health": 6,
+"AI advancements": 7
+},
+"coherence": 0.86
+},
+"80": {
+"description": "US banks/financials sector with CHIPS Act impact.",
+"scores": {
+"BAC": 7,
+"impact of CHIPS Act": 7,
+"US_Banks": 7,
+"US_Regional_Banks": 7,
+"US_Financials_Sector": 7
+},
+"coherence": 0.90
+},
+"81": {
+"description": "Zoom/AstraZeneca/Alibaba prices/news with Mitch McConnell tags.",
+"scores": {
+"Mitch McConnell tweet": -1,
+"Zoom stock price": 8,
+"buy Alibaba shares": 6,
+"JD.com news": 8,
+"Azure sales in Sinai Peninsula": 5,
+"Mitch McConnell interview": -1,
+"buy AstraZeneca shares": 6,
+"AstraZeneca stock price": 8,
+"Mitch McConnell": -1
+},
+"coherence": 0.83
+},
+"82": {
+"description": "Earnings (Mobileye/Salesforce) with Israel politics and Sea Limited buy.",
+"scores": {
+"Mobileye earnings report": 9,
+"buy Sea Limited shares": 6,
+"Benjamin Netanyahu interview": -1,
+"Yuli Edelstein tweet": -1,
+"Salesforce earnings report": 9
+},
+"coherence": 0.94
+},
+"83": {
+"description": "Semis/AI hardware (ASML, Jensen Huang) and digital transformation trends.",
+"scores": {
+"investing in digital transformation": 7,
+"Jensen Huang interview": -1,
+"sleep tracking trends": 6,
+"ASML earnings report": 9,
+"Playstation 5 Pro sales in Ethiopia": 5,
+"CHIPS Act forecast": 8
+},
+"coherence": 0.86
+},
+"84": {
+"description": "Tech/fintech prices/news with layoffs.",
+"scores": {
+"Zoom news": 8,
+"SolarEdge stock price": 8,
+"Sea Limited stock price": 8,
+"Alibaba stock price": 8,
+"Wells Fargo layoffs": 7
+},
+"coherence": 0.92
+},
+"85": {
+"description": "Buy signals for fintech/ride-hailing with responses and Palestine sales.",
+"scores": {
+"buy Uber shares": 6,
+"Andy Jassy": -1,
+"buy Zoom shares": 6,
+"buy American Express shares": 6,
+"Broadcom response to Israel": 5,
+"Roomba sales in Palestine": 5
+},
+"coherence": 0.82
+},
+"86": {
+"description": "Israel tech pricing and pharma/politics with celebrity music.",
+"scores": {
+"Rihanna new album": -1,
+"Joe Rogan new album": -1,
+"GSK response to Iran": 5,
+"Sundar Pichai tweet": -1,
+"Kamala Harris on greenwashing": -1,
+"Gavin Newsom": -1,
+"Mobileye stock price": 8
+},
+"coherence": 1.00
+},
+"87": {
+"description": "ESG/carbon and genetics investing with Lululemon earnings and rates.",
+"scores": {
+"carbon emissions stocks": 6,
+"investing in genetic testing": 6,
+"buy Spotify shares": 6,
+"CyberArk stock price": 8,
+"Apple response to Golan Heights": 5,
+"bond yields forecast": 8,
+"Lululemon earnings report": 9
+},
+"coherence": 0.86
+},
+"88": {
+"description": "China pharma/tech names with Target buy and Surface pricing.",
+"scores": {
+"Baidu": 7,
+"Sanofi": 6,
+"Sea Limited": 7,
+"buy Target shares": 6,
+"Microsoft Surface price": 7
+},
+"coherence": 0.84
+},
+"89": {
+"description": "Monetary policy/retail controversies with earnings and layoffs.",
+"scores": {
+"monetary policy forecast": 8,
+"keto diet trends": -1,
+"Zara earnings report": 9,
+"Zoom controversy": 6,
+"IKEA layoffs": 7
+},
+"coherence": 0.90
+},
+"90": {
+"description": "Tech/VC/gaming and influencer marketing with veteran-friendly tag.",
+"scores": {
+"Iraq": 6,
+"big data trends": 7,
+"Veteran Friendly": 5,
+"gaming industry": 7,
+"venture capital": 7,
+"influencer marketing": 6
+},
+"coherence": 0.76
+},
+"91": {
+"description": "West Bank/Jerusalem wars with Meta Quest release and Qualcomm layoffs.",
+"scores": {
+"war in Jerusalem": 8,
+"new Meta Quest 3 release date": 7,
+"Bad Bunny new album": -1,
+"Qualcomm layoffs": 7,
+"war in West Bank": 8
+},
+"coherence": 0.92
+},
+"92": {
+"description": "Target pricing/stock with Pride politics and Ron DeSantis media.",
+"scores": {
+"Target controversy": 6,
+"Ron DeSantis tweet": -1,
+"Monday.com stock price": 8,
+"pride month controversy": 6,
+"Ron DeSantis interview": -1
+},
+"coherence": 0.88
+},
+"93": {
+"description": "Cloud/service news and Target earnings with Apple/AWS controversies.",
+"scores": {
+"Apple controversy": 6,
+"crypto trends": 7,
+"Cloudflare news": 8,
+"Target earnings report": 9,
+"AWS review": 6
+},
+"coherence": 0.86
+},
+"94": {
+"description": "Mega-cap tech and market indices with some cause/ethics tags.",
+"scores": {
+"ISRG": 6,
+"Google": 9,
+"V": 7,
+"NOW": 6,
+"COST": 6,
+"BKNG": 6,
+"ORCL": 7,
+"AMZN": 9,
+"MSFT": 9,
+"XOM": 5,
+"CVX": 5,
+"IBM": 7,
+"NFLX": 8,
+"COP": 5,
+"GOOGL": 9,
+"CRWD": 8,
+"MS": 5,
+"LGBTQEquality": -1,
+"S&P500": 8,
+"MA": 7,
+"SLB": 5,
+"AAPL": 9,
+"BLK": 6,
+"APPLE": 9,
+"UBER": 8,
+"LargeTech": 10,
+"AIEthics": -1,
+"SupportUkraine": -1,
+"VeteranFriendly": -1,
+"META": 9
+},
+"coherence": 0.81
+},
+"95": {
+"description": "US market indices and sectors basket.",
+"scores": {
+"Russell2000": 8,
+"US_Consumer_Discretionary": 7,
+"Nasdaq100": 9,
+"US_Industrials": 7,
+"US_Utilities": 7,
+"US_Consumer_Staples": 7,
+"US_Tech_Sector": 9,
+"US_Homebuilders": 7,
+"US_Communication_Services": 7,
+"US_Real_Estate": 7,
+"US_HealthCare_Sector": 7,
+"US_Materials": 7,
+"DowJones30": 8,
+"S&P500_ETF": 9
+},
+"coherence": 0.89
+},
+"96": {
+"description": "AI infrastructure, cybersecurity, gender diversity, and Israel support tickers/themes.",
+"scores": {
+"NVDA": 9,
+"PANW": 8,
+"GenderDiversity": 6,
+"AI_Infrastructure_Stack": 8,
+"SupportIsrael": 6
+},
+"coherence": 0.85
+},
+"24_extra": {
+"description": "Consumer & tech market news and prices (continuation key to ensure all content captured).",
+"scores": {},
+"coherence": 0.00
+}
+}
