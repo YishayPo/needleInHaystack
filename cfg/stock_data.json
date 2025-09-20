@@ -9,6 +9,13 @@
             "description": "Benchmark index of 500 large-cap U.S. companies across all sectors."
         },
         {
+            "name": "AmericanEagle",
+            "ticker": "AEO",
+            "period": "1y",
+            "interval": "1d",
+            "description": "American Eagle Outfitters Inc AEO:NYSE"
+        },
+        {
             "name": "Apple",
             "ticker": "AAPL",
             "period": "5y",

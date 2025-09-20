@@ -1,16 +1,14 @@
 from __future__ import annotations
 import warnings
 import pandas as pd
-import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from logging import getLogger, StreamHandler, Formatter, INFO
 from rich.console import Console
 from tqdm import tqdm
+import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
-import numpy as np
 
 np.seterr(all="ignore")
 
@@ -21,25 +19,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 STOCK_DIR = PROJECT_ROOT / "data" / "Market"
 KEYWORDS_FILE = PROJECT_ROOT / "keywords.csv"
 TRENDS_CACHE_DIR = PROJECT_ROOT / "data" / "google_trends"
-CORR_CACHE_DIR = PROJECT_ROOT / "data" / "correlations"
 RESULTS_FILE = PROJECT_ROOT / "correlation_results.csv"
-PLOTS_DIR = PROJECT_ROOT / "plots"
+PLOTS_DIR = PROJECT_ROOT / "plots" / "random_correlations"
 
 SPARSITY_DISCARD_THRESHOLD = 0.8  # 80% -> discard completely
-
-COMPANIES = [
-    'APPLE', 'Google', 'Tesla'
-]
-AGENDA_FOCUSED = [
-    'AIEthics', 'AQWA', 'CircularEconomy', 'CleanWater', 'FRDM',
-    'GenderDiversity', 'HydrogenCCS', 'ICLN', 'LGBT', 'LGBTQEquality',
-    'PHO', 'SHE', 'SupportIsrael', 'SupportUkraine', 'TAN',
-    'VeteranFriendly', 'VETS'
-]
-
-INDICES_AND_SECTOR_ETFS = [
-    'EIS', 'ERUS', 'ISRA', 'LargeTech', 'RSX', 'S&P500'
-]
+CORR_MIN, CORR_MAX = 0.3, 0.8  # logical correlation range
+IDLE_STOCK_CAP = 26  # max amount of days when stock can stay unchanged
 
 
 def setup_logging_and_warnings():
@@ -60,9 +45,9 @@ class CorrelationFinder:
         self.keyword_df: Optional[pd.DataFrame] = None
         self.stock_data_daily: Dict[str, pd.DataFrame] = {}
         self.stock_data_weekly: Dict[str, pd.DataFrame] = {}
+        self.missing_keywords: List[str] = []
 
         TRENDS_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-        CORR_CACHE_DIR.mkdir(parents=True, exist_ok=True)
         PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
         CONSOLE.log("[bold green]CorrelationFinder initialized.[/bold green]")
@@ -74,15 +59,14 @@ class CorrelationFinder:
         CONSOLE.log(f"Loaded [bold yellow]{len(self.keyword_df)}[/bold yellow] keywords.")
 
     def _trim_or_fix_stock_data(self, df: pd.DataFrame, stock_name: str) -> pd.DataFrame:
-        """Trim from first corrupted streak >= 6 days, tolerate shorter ones."""
+        """Trim from first corrupted streak >= IDLE_STOCK_CAP days."""
         df = df.copy()
         corrupted = (df['Open'] == df['High']) & (df['High'] == df['Low']) & (df['Low'] == df['Close'])
         corrupted |= (df['Volume'] == 0)
 
         if not corrupted.any():
-            return df  # nothing wrong
+            return df
 
-        # find streaks of consecutive corrupted days
         streak_count = 0
         first_bad_day = None
         for date, is_bad in corrupted.items():
@@ -90,15 +74,12 @@ class CorrelationFinder:
                 if streak_count == 0:
                     first_bad_day = date
                 streak_count += 1
-                if streak_count >= 6:
-                    CONSOLE.log(f"[yellow]{stock_name}: trimming data from {first_bad_day.date()} onward "
-                                f"(>=6 consecutive corrupted days).[/yellow]")
+                if streak_count >= IDLE_STOCK_CAP:
+                    CONSOLE.log(f"[yellow]{stock_name}: trimming from {first_bad_day.date()} onward[/yellow]")
                     return df.loc[:first_bad_day - pd.Timedelta(days=1)]
             else:
                 streak_count = 0
                 first_bad_day = None
-
-        # if no long streak found, tolerate everything
         return df
 
     def _load_and_preprocess_stock_data(self):
@@ -122,9 +103,7 @@ class CorrelationFinder:
                 if 'Close' not in df.columns or 'Volume' not in df.columns:
                     continue
 
-                # clean corrupted data
                 df = self._trim_or_fix_stock_data(df, stock_name)
-
                 df['Close_Returns'] = df['Close'].pct_change()
                 df['Volume_Returns'] = df['Volume'].pct_change()
                 df_daily = df.dropna()
@@ -146,7 +125,6 @@ class CorrelationFinder:
 
         std = nonzero.std(ddof=0)
         if std == 0 or np.isnan(std):
-            # constant values -> return zeros
             standardized = pd.Series(0.0, index=nonzero.index)
         else:
             standardized = (nonzero - nonzero.mean()) / std
@@ -156,7 +134,6 @@ class CorrelationFinder:
     @staticmethod
     def _calculate_cross_correlation(series1: pd.Series, series2: pd.Series, max_lag: int) -> Tuple[
         int, float]:
-        """Find best lag correlation in weeks, safely handling small/constant data."""
         if len(series1.dropna()) < 2 or len(series2.dropna()) < 2:
             return 0, 0.0
         if series1.std() == 0 or series2.std() == 0:
@@ -169,13 +146,78 @@ class CorrelationFinder:
                 best_lag, max_corr = lag, corr
         return best_lag, max_corr
 
-    def run_analysis(self, target_stocks: List[str], target_keywords_df: pd.DataFrame) -> pd.DataFrame:
-        """Run correlation analysis on weekly data with caching."""
+    def _should_skip(self, stock: str, keyword: str, metric: str, done: set) -> bool:
+        """Check if this correlation already exists (incremental update)."""
+        return (stock, keyword, metric) in done
+
+    def _load_trend_series(self, keyword: str, cached_trend_files: Dict[str, Path]) -> Tuple[
+        pd.Series, float]:
+        """Load and preprocess Google Trends series, handle missing/empty files."""
+        try:
+            trend_df = pd.read_csv(cached_trend_files[keyword], index_col='date', parse_dates=True)
+            if trend_df.empty or keyword not in trend_df.columns:
+                self.missing_keywords.append(keyword)
+                return pd.Series(dtype=float), 1.0
+            return self._preprocess_trend_series(trend_df[keyword].astype(float).fillna(0))
+        except pd.errors.EmptyDataError:
+            self.missing_keywords.append(keyword)
+            return pd.Series(dtype=float), 1.0
+        except Exception as e:
+            CONSOLE.log(f"[red]Trend load error for {keyword}: {e}[/red]")
+            return pd.Series(dtype=float), 1.0
+
+    def _compute_correlation(self, stock_df_weekly: pd.DataFrame, trend_series: pd.Series,
+                             metric: str, sparsity: float) -> Tuple[int, float]:
+        """Compute best lag correlation between stock returns and trend."""
+        if trend_series.empty or sparsity > SPARSITY_DISCARD_THRESHOLD:
+            return 0, 0.0
+        max_lag = 1 if sparsity > (SPARSITY_DISCARD_THRESHOLD * 0.6) else 3
+        aligned_stock, aligned_trend = stock_df_weekly.align(trend_series, join='inner', axis=0)
+        if aligned_trend.empty:
+            return 0, 0.0
+        return self._calculate_cross_correlation(aligned_stock[metric], aligned_trend, max_lag)
+
+    def _process_metric(self, stock_name: str, stock_df_weekly: pd.DataFrame, keyword: str,
+                        category: str, metric: str, done: set,
+                        cached_trend_files: Dict[str, Path]) -> Optional[dict]:
+        """Process one metric for stock-keyword pair."""
+        if self._should_skip(stock_name, keyword, metric, done):
+            return None
+
+        trend_series, sparsity = self._load_trend_series(keyword, cached_trend_files)
+        lag, corr = self._compute_correlation(stock_df_weekly, trend_series, metric, sparsity)
+
+        if CORR_MIN <= abs(corr) <= CORR_MAX:
+            return {
+                'Stock': stock_name, 'Keyword': keyword, 'Keyword_Category': category,
+                'Metric': metric, 'Best_Lag_Weeks': lag, 'Correlation': corr
+            }
+        return None
+
+    def _process_stock_keyword(self, stock_name: str, stock_df_weekly: pd.DataFrame,
+                               keyword: str, category: str, done: set,
+                               cached_trend_files: Dict[str, Path]) -> List[dict]:
+        """Process both metrics (Close_Returns, Volume_Returns) for one stock-keyword."""
         results = []
-        self.missing_keywords: List[str] = []  # keep track of empty trend files
+        for metric in ['Close_Returns', 'Volume_Returns']:
+            result = self._process_metric(stock_name, stock_df_weekly, keyword, category, metric, done,
+                                          cached_trend_files)
+            if result:
+                results.append(result)
+        return results
+
+    def run_analysis(self, target_stocks: List[str], target_keywords_df: pd.DataFrame,
+                     existing_results: Optional[pd.DataFrame]) -> pd.DataFrame:
+        """Main loop: iterate stocks → keywords → metrics, build correlations."""
+        results = []
         cached_trend_files = {p.stem.replace('_', ' '): p for p in TRENDS_CACHE_DIR.glob("*.csv")}
         keywords_to_analyze_df = target_keywords_df[
             target_keywords_df['keyword'].isin(cached_trend_files.keys())]
+
+        already_done = set()
+        if existing_results is not None and not existing_results.empty:
+            already_done = set(
+                zip(existing_results['Stock'], existing_results['Keyword'], existing_results['Metric']))
 
         for stock_name in tqdm(target_stocks, desc="Analyzing Stocks"):
             stock_df_weekly = self.stock_data_weekly.get(stock_name)
@@ -183,166 +225,84 @@ class CorrelationFinder:
                 continue
             for _, row in keywords_to_analyze_df.iterrows():
                 keyword, category = row['keyword'], row['category']
-                for metric in ['Close_Returns', 'Volume_Returns']:
-                    cache_file = CORR_CACHE_DIR / f"{stock_name}_{keyword}_{metric}.json".replace(' ', '_')
-                    if cache_file.exists():
-                        try:
-                            results.append(json.loads(cache_file.read_text()))
-                            continue
-                        except json.JSONDecodeError:
-                            pass
-                    try:
-                        try:
-                            trend_df = pd.read_csv(cached_trend_files[keyword], index_col='date',
-                                                   parse_dates=True)
-                        except pd.errors.EmptyDataError:
-                            # file completely empty
-                            self.missing_keywords.append(keyword)
-                            continue
+                results.extend(self._process_stock_keyword(stock_name, stock_df_weekly,
+                                                           keyword, category, already_done,
+                                                           cached_trend_files))
 
-                        if trend_df.empty or keyword not in trend_df.columns:
-                            self.missing_keywords.append(keyword)
-                            continue
+        return pd.DataFrame(results)
 
-                        trend_series, sparsity = self._preprocess_trend_series(
-                            trend_df[keyword].astype(float).fillna(0))
-
-                        if sparsity > SPARSITY_DISCARD_THRESHOLD:
-                            result = {'Stock': stock_name, 'Keyword': keyword, 'Keyword_Category': category,
-                                      'Metric': metric, 'Best_Lag_Weeks': 0, 'Correlation': 0.0}
-                            results.append(result)
-                            cache_file.write_text(json.dumps(result))
-                            continue
-
-                        max_lag = 1 if sparsity > (SPARSITY_DISCARD_THRESHOLD * 0.6) else 3
-
-                        aligned_stock, aligned_trend = stock_df_weekly.align(trend_series, join='inner',
-                                                                             axis=0)
-                        if aligned_trend.empty:
-                            continue
-                        lag, corr = self._calculate_cross_correlation(aligned_stock[metric], aligned_trend,
-                                                                      max_lag)
-                        result = {'Stock': stock_name, 'Keyword': keyword, 'Keyword_Category': category,
-                                  'Metric': metric, 'Best_Lag_Weeks': lag, 'Correlation': corr}
-                        results.append(result)
-                        cache_file.write_text(json.dumps(result))
-                    except Exception as e:
-                        CONSOLE.log(f"[red]Error processing {stock_name}-{keyword}: {e}[/red]")
-                        continue
-
-        # save missing keywords file at project root
-        if hasattr(self, "missing_keywords") and self.missing_keywords:
+    def _save_missing_keywords(self):
+        if self.missing_keywords:
             missing_file = PROJECT_ROOT / "missing_keywords.txt"
             with open(missing_file, "w", encoding="utf-8") as f:
                 for kw in sorted(set(self.missing_keywords)):
                     f.write(f"{kw}\n")
 
-        if not results:
-            return pd.DataFrame()
-        df = pd.DataFrame(results)
-        df['Abs_Correlation'] = df['Correlation'].abs()
-        return df.sort_values(by='Abs_Correlation', ascending=False).drop(columns=['Abs_Correlation'])
-
-    def plot_top_correlations(self, results_df: pd.DataFrame):
-        """Generate and save interactive plots for top 5 correlations in each category group."""
-
-        if results_df.empty:
-            return
-
-        if 'Abs_Correlation' not in results_df.columns:
-            results_df = results_df.copy()
-            results_df['Abs_Correlation'] = results_df['Correlation'].abs()
-
-        grouped_results = []
-        for group_name, tickers in {
-            "COMPANIES": COMPANIES,
-            "AGENDA_FOCUSED": AGENDA_FOCUSED,
-            "INDICES_AND_SECTOR_ETFS": INDICES_AND_SECTOR_ETFS
-        }.items():
-            group_df = results_df[results_df['Stock'].isin(tickers)]
-            if not group_df.empty:
-                top5 = group_df.nlargest(5, 'Abs_Correlation')
-                grouped_results.append(top5)
-
-                # log summary
-                CONSOLE.log(f"[cyan]{group_name}[/cyan] — top 5 correlations:")
-                CONSOLE.log(top5[['Stock', 'Keyword', 'Metric', 'Best_Lag_Weeks', 'Correlation']].to_string())
-
-        if not grouped_results:
-            return
-
-        top_results = pd.concat(grouped_results).drop_duplicates()
-
-        for _, row in top_results.iterrows():
-            stock, keyword, metric, lag, corr = (
-                row['Stock'], row['Keyword'], row['Metric'],
-                row['Best_Lag_Weeks'], row['Correlation']
-            )
+    def _plot_top_for_stock(self, stock: str, top_df: pd.DataFrame):
+        for _, row in top_df.iterrows():
             stock_df = self.stock_data_weekly[stock]
-            trend_df = pd.read_csv(
-                TRENDS_CACHE_DIR / f"{keyword.replace(' ', '_')}.csv",
-                index_col='date', parse_dates=True
-            )
-            trend_series, _ = self._preprocess_trend_series(
-                trend_df[keyword].astype(float).fillna(0)
-            )
-            shifted_trend = trend_series.shift(lag)
-            aligned_stock, aligned_trend = stock_df.align(
-                shifted_trend, join='inner', axis=0
-            )
+            keyword, metric, lag, corr = row['Keyword'], row['Metric'], row['Best_Lag_Weeks'], row[
+                'Correlation']
+            try:
+                trend_df = pd.read_csv(
+                    TRENDS_CACHE_DIR / f"{keyword.replace(' ', '_')}.csv",
+                    index_col='date', parse_dates=True
+                )
+                trend_series, _ = self._preprocess_trend_series(trend_df[keyword].astype(float).fillna(0))
+                shifted_trend = trend_series.shift(lag)
+                aligned_stock, aligned_trend = stock_df.align(shifted_trend, join='inner', axis=0)
 
-            fig = make_subplots(specs=[[{"secondary_y": True}]])
-            fig.add_trace(
-                go.Scatter(x=aligned_stock.index, y=aligned_stock[metric],
-                           name=f"{stock} {metric}"),
-                secondary_y=False
-            )
-            fig.add_trace(
-                go.Scatter(x=aligned_trend.index, y=aligned_trend,
-                           name=f"Trend '{keyword}' (Lag {lag}w)"),
-                secondary_y=True
-            )
-            fig.update_layout(
-                title=f"{stock} vs '{keyword}' — Correlation {corr:.3f} (Lag {lag}w)",
-                title_x=0.5
-            )
-
-            fig.write_html(PLOTS_DIR / f"{stock}_{keyword}_{metric}.html".replace(' ', '_'))
-
-        CONSOLE.log(
-            f"[bold green]Saved {len(top_results)} plots (5 per group) to '{PLOTS_DIR}'[/bold green]"
-        )
+                fig = make_subplots(specs=[[{"secondary_y": True}]])
+                fig.add_trace(go.Scatter(x=aligned_stock.index, y=aligned_stock[metric],
+                                         name=f"{stock} {metric}"), secondary_y=False)
+                fig.add_trace(go.Scatter(x=aligned_trend.index, y=aligned_trend,
+                                         name=f"Trend '{keyword}' (Lag {lag}w)"), secondary_y=True)
+                fig.update_layout(
+                    title=f"{stock} vs '{keyword}' — Correlation {corr:.3f} (Lag {lag}w)",
+                    title_x=0.5
+                )
+                fig.write_html(PLOTS_DIR / f"{stock}_{keyword}_{metric}.html".replace(' ', '_'))
+            except Exception as e:
+                CONSOLE.log(f"[red]Plot error {stock}-{keyword}: {e}[/red]")
 
     def execute_pipeline(self):
-        """Full pipeline: load data, run analysis, save results, plot."""
         self._load_keywords()
         self._load_and_preprocess_stock_data()
         if self.keyword_df is None or not self.stock_data_daily:
             return
 
-        results_df = self.run_analysis(list(self.stock_data_daily.keys()), self.keyword_df)
-        if results_df.empty:
-            CONSOLE.log("[bold yellow]No correlations found.[/bold yellow]")
+        all_stocks = list(self.stock_data_daily.keys())
+        existing_df = None
+        if RESULTS_FILE.exists():
+            try:
+                existing_df = pd.read_csv(RESULTS_FILE)
+            except Exception:
+                existing_df = None
+
+        new_results = self.run_analysis(all_stocks, self.keyword_df, existing_df)
+
+        self._save_missing_keywords()
+
+        if new_results.empty and (existing_df is None or existing_df.empty):
+            CONSOLE.log("[bold yellow]No correlations found in range 0.3–0.8[/bold yellow]")
             return
 
-        results_df.to_csv(RESULTS_FILE, index=False)
+        final_df = pd.concat([existing_df, new_results],
+                             ignore_index=True) if existing_df is not None else new_results
+        final_df.to_csv(RESULTS_FILE, index=False)
         CONSOLE.log(f"[bold green]Results saved to {RESULTS_FILE}[/bold green]")
 
-        for group_name, tickers in {
-            "COMPANIES": COMPANIES,
-            "AGENDA_FOCUSED": AGENDA_FOCUSED,
-            "INDICES_AND_SECTOR_ETFS": INDICES_AND_SECTOR_ETFS
-        }.items():
-            group_df = results_df[results_df['Stock'].isin(tickers)]
-            if not group_df.empty:
-                group_df = group_df.copy()
-                group_df['Abs_Correlation'] = group_df['Correlation'].abs()
-                top5 = group_df.nlargest(5, 'Abs_Correlation')
-
-                CONSOLE.log(f"[cyan]{group_name}[/cyan] — top 5 correlations:")
-                print(top5[['Stock', 'Keyword', 'Metric', 'Best_Lag_Weeks', 'Correlation']].to_string())
-
-        self.plot_top_correlations(results_df)
+        for stock in all_stocks:
+            stock_df = final_df[final_df['Stock'] == stock].copy()
+            if stock_df.empty:
+                print(f"{stock}: no correlation found")
+                continue
+            stock_df['Abs_Correlation'] = stock_df['Correlation'].abs()
+            top3 = stock_df.nlargest(3, 'Abs_Correlation')
+            print(f"\nTop correlations for {stock}:")
+            print(
+                top3[['Stock', 'Keyword', 'Metric', 'Best_Lag_Weeks', 'Correlation']].to_string(index=False))
+            self._plot_top_for_stock(stock, top3)
 
 
 def main():

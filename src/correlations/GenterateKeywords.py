@@ -103,7 +103,7 @@ SEED_CATEGORIES = {
         "Barbie movie", "Oppenheimer movie", "burning man", "fashion week"
     ],
     "culture_person": [
-        "Taylor Swift", "Beyonce", "Sydney Sweeney", "Rihanna", "Drake", "Adele", "Kendrick Lamar",
+        "Taylor Swift", "Beyonce", "Rihanna", "Drake", "Adele", "Kendrick Lamar",
         "Billie Eilish", "Harry Styles", "The Weeknd", "Olivia Rodrigo", "Bad Bunny", "Dua Lipa",
         "Lady Gaga", "Kylie Jenner", "Kim Kardashian", "Kanye West", "Travis Scott", "Cardi B",
         "Megan Thee Stallion", "Doja Cat", "Lizzo", "Zendaya", "Tom Holland", "Margot Robbie",
