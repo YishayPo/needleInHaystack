@@ -276,7 +276,7 @@ class CorrelationFinder:
         if RESULTS_FILE.exists():
             try:
                 existing_df = pd.read_csv(RESULTS_FILE)
-            except Exception:
+            except Exception as e:
                 existing_df = None
 
         new_results = self.run_analysis(all_stocks, self.keyword_df, existing_df)
